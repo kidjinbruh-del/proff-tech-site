@@ -239,9 +239,9 @@ nav.menu a:hover{color:var(--text)}
 .field.bad input{border-color:var(--danger)}
 .err{display:none;color:var(--danger);font-size:.83rem;margin-top:7px}
 .field.bad .err{display:block}
-.consent{display:flex;gap:11px;align-items:flex-start;flex-wrap:wrap;color:var(--muted);font-size:.83rem;line-height:1.5}
-.consent input{width:17px;height:17px;margin-top:2px;accent-color:var(--accent);flex:none}
-.consent .err{width:100%}
+.consent{display:grid;grid-template-columns:17px 1fr;gap:8px 11px;align-items:start;color:var(--muted);font-size:.83rem;line-height:1.5}
+.consent input{width:17px;height:17px;margin-top:3px;accent-color:var(--accent)}
+.consent .err{grid-column:1/-1;display:none;margin-top:0}
 .consent a{color:var(--soft)}
 .form-card .btn{width:100%}
 .policy-line{font-size:.8rem;color:var(--muted);margin-top:-6px}

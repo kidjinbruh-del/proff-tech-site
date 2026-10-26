@@ -246,6 +246,10 @@ nav.menu a:hover{color:var(--text)}
 .form-card .btn{width:100%}
 .policy-line{font-size:.8rem;color:var(--muted);margin-top:-6px}
 .policy-line a{color:var(--soft)}
+.btn[disabled]{opacity:.65;cursor:progress;transform:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-err{color:var(--danger);font-size:.86rem;line-height:1.4}
+.form-err a{color:var(--danger)}
 .okbox{display:none;flex-direction:column;gap:10px;text-align:left;padding:8px 4px}
 .okbox .ic{width:40px;height:40px;color:var(--accent-text)}
 .okbox h3{font-size:1.25rem;letter-spacing:-.01em}
@@ -646,6 +650,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
           <span class="err" role="alert">Отметьте согласие на обработку данных</span>
         </label>
         <p class="policy-line"><a href="privacy.html">Политика обработки персональных данных</a> · оператор, цель, срок хранения и порядок отзыва — в тексте политики</p>
+        <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <p class="form-err" role="alert" hidden>Не удалось отправить заявку. Позвоните: <a href="tel:+74912511441">+7 (4912) 511-441</a></p>
         <button class="btn btn-primary" type="submit">Отправить заявку</button>
       </form>
       <div class="okbox" role="status">
@@ -727,6 +733,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
         <span class="err" role="alert">Отметьте согласие на обработку данных</span>
       </label>
       <p class="policy-line"><a href="privacy.html">Политика обработки персональных данных</a> · оператор, цель, срок хранения и порядок отзыва — в тексте политики</p>
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <p class="form-err" role="alert" hidden>Не удалось отправить заявку. Позвоните: <a href="tel:+74912511441">+7 (4912) 511-441</a></p>
       <button class="btn btn-primary" type="submit">Отправить заявку</button>
     </form>
     <div class="okbox" role="status">
@@ -813,7 +821,37 @@ document.querySelectorAll('[data-open]').forEach(function(b){ b.addEventListener
 ov.addEventListener('click',function(e){ if(e.target===ov)closeM(); });
 ov.querySelector('[data-close]').addEventListener('click',closeM);
 
-/* ---- формы: валидация по blur, очистка по input, успех по submit ---- */
+/* ---- конфигурация интеграций (заполнить перед запуском) ---- */
+var SITE={
+  metrikaId:0,/* TODO: номер счётчика Яндекс.Метрики */
+  crmEndpoint:"",/* TODO: URL прокси → Bitrix24 (см. docs/design-spec.md §6.5) */
+  goalLead:"lead_submit",goalPhone:"phone_click",goalCta:"cta_click",goalRoute:"route_click"
+};
+function goal(n){try{if(SITE.metrikaId&&window.ym)window.ym(SITE.metrikaId,'reachGoal',n);}catch(e){}}
+if(SITE.metrikaId){
+  (function(m,e,t,r,i){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date;
+    var j=e.createElement(t),s=e.getElementsByTagName(t)[0];j.async=1;j.src=r;s.parentNode.insertBefore(j,s);})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+  window.ym(SITE.metrikaId,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
+}
+var UTM=(function(){
+  var q=new URLSearchParams(location.search),o={},keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid','gclid'];
+  keys.forEach(function(k){var v=q.get(k);if(v)o[k]=v;});
+  try{
+    if(Object.keys(o).length)sessionStorage.setItem('proff_utm',JSON.stringify(o));
+    else o=JSON.parse(sessionStorage.getItem('proff_utm')||"{}");
+  }catch(e){}
+  return o;
+})();
+var T0=Date.now();
+document.addEventListener('click',function(e){
+  var t=e.target;
+  if(!t||!t.closest)return;
+  if(t.closest('a[href^="tel:"]')){goal(SITE.goalPhone);return;}
+  if(t.closest('a[href*="yandex.ru/maps/?rtext"]')){goal(SITE.goalRoute);return;}
+  if(t.closest('[data-open]'))goal(SITE.goalCta);
+});
+
+/* ---- формы: валидация по blur, очистка по input, отправка в CRM ---- */
 document.querySelectorAll('.lead-form').forEach(function(form){
   var card=form.closest('.form-card');
   function fEl(k){return form.querySelector('[data-f="'+k+'"]');}
@@ -834,12 +872,33 @@ document.querySelectorAll('.lead-form').forEach(function(form){
     inp.addEventListener('input',function(){ if(fEl(k).classList.contains('bad'))check(k); });
   });
   form.elements.consent.addEventListener('change',function(){ if(fEl('consent').classList.contains('bad'))check('consent'); });
+  var submitBtn=form.querySelector('button[type="submit"]'),errBox=card.querySelector('.form-err');
+  function done(){card.classList.add('done');goal(SITE.goalLead);}
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var ok=['name','phone','consent'].map(check).every(Boolean);
     if(!ok){var bad=form.querySelector('.field.bad input');if(bad)bad.focus();return;}
-    /* Прототип: здесь отправка в CRM/форму Tilda (fetch POST). */
-    card.classList.add('done');
+    if(errBox)errBox.hidden=true;
+    var hp=form.querySelector('input[name="company"]');
+    if(hp&&hp.value){done();return;}/* honeypot: бот — тихий успех без отправки */
+    var data={
+      name:form.elements.name.value.trim(),
+      phone:form.elements.phone.value.trim(),
+      topic:form.elements.topic?form.elements.topic.value:"",
+      consent:true,consent_version:"2026-10-26",
+      page:location.href,referrer:document.referrer,
+      utm:UTM,ts:new Date().toISOString(),elapsed:Date.now()-T0
+    };
+    if(!SITE.crmEndpoint){
+      if(window.console)console.warn("PROFF: crmEndpoint не задан — заявка не отправлена (демо-режим)");
+      done();return;
+    }
+    submitBtn.disabled=true;
+    fetch(SITE.crmEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json().catch(function(){return{};});})
+      .then(function(){done();})
+      .catch(function(){if(errBox)errBox.hidden=false;})
+      .then(function(){submitBtn.disabled=false;});
   });
 });
 

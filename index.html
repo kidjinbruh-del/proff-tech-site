@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PROFF.tech — ремонт бытовой техники и электроники</title>
-<meta name="description" content="Ремонт бытовой техники и электроники с выездом в день обращения. Диагностика 0 ₽ при ремонте, гарантия по договору до 24 месяцев.">
+<title>PROFF.tech — ремонт бытовой техники и электроники в Рязани</title>
+<meta name="description" content="Ремонт бытовой техники и электроники в Рязани: выезд от 30 минут, диагностика 1 000 ₽, гарантия на работы и запчасти. ООО «ПРОФТЕХ», ул. Стройкова, 38.">
 <meta name="theme-color" content="#090F1D">
 <script>document.documentElement.className='js'</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -134,12 +134,13 @@ nav.menu a:hover{color:var(--text)}
 .card:hover .ic{transform:rotate(-6deg) scale(1.1)}
 .card h3{font-size:1.18rem;font-weight:600;letter-spacing:-.01em}
 .card p{color:var(--soft);font-size:.94rem;flex:1}
-.card .foot{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line)}
+.card .foot{display:flex;justify-content:flex-end;align-items:center;padding-top:16px;border-top:1px solid var(--line)}
 .from{font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .from small{color:var(--muted);font-weight:500}
 .go{display:inline-flex;align-items:center;gap:6px;color:var(--soft);font-size:.9rem;font-weight:500;transition:color var(--t-micro) ease}
 .go .ic{width:16px;height:16px}
 .card:hover .go{color:var(--accent-text)}
+.svc-note{color:var(--muted);font-size:.88rem;margin-top:22px;max-width:72ch}
 
 /* ============ ПРЕИМУЩЕСТВА ============ */
 .adv-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -181,6 +182,43 @@ nav.menu a:hover{color:var(--text)}
 .pnote h3{font-size:1.2rem;letter-spacing:-.01em}
 .pnote p{color:var(--soft);font-size:.94rem}
 .price-note{margin-top:18px;color:var(--muted);font-size:.84rem;max-width:60ch}
+
+/* ============ ИЗ ЧЕГО СКЛАДЫВАЕТСЯ ЦЕНА ============ */
+.calc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:44px}
+.calc-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.calc-item .ic{width:22px;height:22px;color:var(--accent-text);margin-bottom:10px}
+.calc-item b,.calc-sum b{display:block;font-size:.98rem;margin-bottom:6px;letter-spacing:-.01em}
+.calc-item p,.calc-sum p{color:var(--soft);font-size:.86rem;line-height:1.5}
+.calc-sum{background:var(--surface-2);border:1px solid rgba(140,163,255,.35);border-radius:14px;padding:22px;display:flex;flex-direction:column;justify-content:center}
+
+/* ============ КАРТА ============ */
+.map-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;align-items:stretch}
+.addr-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.addr-card h3{font-size:1.1rem;letter-spacing:-.01em}
+.addr-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.addr-list li{display:flex;gap:12px;align-items:flex-start;color:var(--soft);font-size:.93rem}
+.addr-list .ic{width:19px;height:19px;margin-top:3px;color:var(--muted)}
+.addr-list a{color:var(--text);text-decoration:none}
+.addr-list a:hover{color:var(--accent-text)}
+.addr-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.addr-actions .btn{padding:12px 18px;font-size:.92rem}
+.map-wrap{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.mtabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.mtab{font:inherit;font-size:.82rem;font-weight:500;padding:8px 12px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--soft);cursor:pointer;transition:color var(--t-micro) ease,background var(--t-micro) ease}
+.mtab:hover{color:var(--text)}
+.mtab[aria-selected="true"]{background:var(--accent);color:#fff}
+.map-frame{position:relative;flex:1;min-height:400px}
+.mpanel{position:absolute;inset:0}
+.mpanel iframe{width:100%;height:100%;border:0;display:block;background:#E8EDF5}
+[hidden]{display:none!important}
+.gis-card{height:100%;display:flex;flex-direction:column;justify-content:center;gap:16px;padding:32px}
+.gis-badge{display:inline-block;width:max-content;padding:6px 12px;border-radius:8px;background:rgba(46,91,255,.14);color:var(--accent-text);font-weight:700;font-size:.85rem;letter-spacing:.02em}
+.gis-rating{display:flex;align-items:baseline;gap:10px}
+.gis-rating b{font-size:2rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.gis-rating span{color:var(--muted);font-size:.88rem}
+.gis-card p{color:var(--soft);font-size:.92rem;max-width:44ch}
+.gis-card .btn{width:max-content}
+.map-note{padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem}
 
 /* ============ ФОРМА ============ */
 #lead{background:var(--surface);border-top:1px solid var(--line)}
@@ -254,7 +292,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   nav.menu{display:none}
   .site .tel{display:none}
   section{padding:calc(68px * var(--d)) 0}
-  .svc-grid,.adv-grid,.lead-grid,.price-grid{grid-template-columns:1fr}
+  .svc-grid,.adv-grid,.lead-grid,.price-grid,.calc,.map-grid{grid-template-columns:1fr}
+  .map-frame{min-height:340px}
   .adv-photo{grid-column:auto}
   .price-grid{gap:32px}
   .lead-grid{gap:36px}
@@ -309,6 +348,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
   <symbol id="i-done" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="3" y="6.5" width="18" height="12" rx="2"/><path d="m8 2.5 4 4 4-4"/><path d="M9 21.5h6"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
 </svg>
 
@@ -328,8 +368,8 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
       <a href="#prices">Цены</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="tel" href="tel:+74951207730"><!-- mock: заменить на реальный номер -->
-      <svg class="ic ic-18"><use href="#i-phone"/></svg>+7 495 120-77-30</a>
+    <a class="tel" href="tel:+74912511441">
+      <svg class="ic ic-18"><use href="#i-phone"/></svg>+7 (4912) 511-441</a>
     <button class="btn btn-primary" data-open type="button">Вызвать мастера</button>
   </div>
 </header>
@@ -340,19 +380,19 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <canvas id="bg" aria-hidden="true"></canvas>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="pill rv" style="--i:0"><svg class="ic"><use href="#i-bolt"/></svg>Выезд в день обращения</span>
-      <h1 class="rv" style="--i:1">Починим технику <em>сегодня</em></h1>
-      <p class="lede rv" style="--i:2">Бытовая техника и электроника. Мастер приезжает в день обращения, находит причину на месте и даёт гарантию по договору.</p>
+      <span class="pill rv" style="--i:0"><svg class="ic"><use href="#i-bolt"/></svg>Выезд по Рязани от 30 минут</span>
+      <h1 class="rv" style="--i:1">Починим технику <em>в Рязани</em></h1>
+      <p class="lede rv" style="--i:2">Бытовая техника и электроника любых марок. Мастер приезжает по городу от 30 минут, диагностика — 1&nbsp;000 ₽, гарантия на работы и запчасти.</p>
       <div class="cta-row rv" style="--i:3">
         <button class="btn btn-primary" data-open type="button">Вызвать мастера</button>
-        <a class="tel-big" href="tel:+74951207730"><svg class="ic ic-18"><use href="#i-phone"/></svg>+7 495 120-77-30</a>
+        <a class="tel-big" href="tel:+74912511441"><svg class="ic ic-18"><use href="#i-phone"/></svg>+7 (4912) 511-441</a>
       </div>
     </div>
     <div class="tiles rv" style="--i:2" aria-hidden="true">
       <div class="tile t1"><svg class="ic"><use href="#i-wash"/></svg><b>Крупная техника</b>стиральные, посудомойки, холодильники</div>
-      <div class="tile t2"><svg class="ic"><use href="#i-coffee"/></svg><b>Кофемашины</b>Saeco, De'Longhi, Jura</div>
-      <div class="tile t3"><svg class="ic"><use href="#i-vac"/></svg><b>Пылесосы</b>роботы и вертикальные</div>
-      <div class="tile t4"><span class="num">0 ₽</span><small>диагностика при ремонте</small></div>
+      <div class="tile t2"><svg class="ic"><use href="#i-coffee"/></svg><b>Кофемашины</b>Saeco, De'Longhi, Jura, Bosch</div>
+      <div class="tile t3"><svg class="ic"><use href="#i-vac"/></svg><b>Пылесосы</b>обычные и роботы</div>
+      <div class="tile t4"><span class="num" style="font-size:1.55rem">1 000 ₽</span><small>диагностика, смета — до работ</small></div>
     </div>
   </div>
 </section>
@@ -362,35 +402,36 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Что ремонтируем</h2>
-      <p>Профильные мастера по четырём направлениям. Не нашли свою технику — позвоните, подскажем, возьмёмся ли.</p>
+      <p>Ремонтируем технику любых марок — на дому или в мастерской. Не нашли свою — позвоните, подскажем, возьмёмся ли.</p>
     </div>
     <div class="svc-grid">
-      <!-- цены «от» — плейсхолдеры, заменить реальным прайсом -->
+      <!-- цены — в блоке «Стоимость»: итог зависит от модели и запчасти -->
       <a class="card rv" style="--i:0" href="#lead" data-open data-topic="coffee">
         <svg class="ic"><use href="#i-coffee"/></svg>
         <h3>Кофемашины</h3>
-        <p>Заварочный блок, кофемолка, декальцинация, уплотнители. Saeco, De'Longhi, Jura и другие.</p>
-        <span class="foot"><span class="from"><small>от</small> 1 500 ₽</span><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
+        <p>Бытовые и профессиональные: заварочный блок, помпа, термоблок, чистка и декальцинация. Saeco, De'Longhi, Jura, Bosch.</p>
+        <span class="foot"><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
       </a>
       <a class="card rv" style="--i:1" href="#lead" data-open data-topic="large">
         <svg class="ic"><use href="#i-wash"/></svg>
         <h3>Крупная техника</h3>
-        <p>Стиральные и посудомоечные машины, холодильники, духовки, плиты.</p>
-        <span class="foot"><span class="from"><small>от</small> 1 200 ₽</span><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
+        <p>Стиральные и сушильные машины, посудомоечные, холодильники, варочные панели, бойлеры.</p>
+        <span class="foot"><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
       </a>
       <a class="card rv" style="--i:2" href="#lead" data-open data-topic="small">
         <svg class="ic"><use href="#i-micro"/></svg>
         <h3>Мелкая техника</h3>
-        <p>Микроволновые печи, чайники, блендеры, мультиварки, фены.</p>
-        <span class="foot"><span class="from"><small>от</small> 800 ₽</span><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
+        <p>Микроволновки, мультиварки, блендеры, тостеры, чайники, утюги, фены, машинки для стрижки.</p>
+        <span class="foot"><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
       </a>
-      <a class="card rv" style="--i:3" href="#lead" data-open data-topic="vac">
-        <svg class="ic"><use href="#i-vac"/></svg>
-        <h3>Пылесосы</h3>
-        <p>Роботы, вертикальные и классические. Dyson, Samsung, Xiaomi, Philips.</p>
-        <span class="foot"><span class="from"><small>от</small> 1 000 ₽</span><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
+      <a class="card rv" style="--i:3" href="#lead" data-open data-topic="av">
+        <svg class="ic"><use href="#i-tv"/></svg>
+        <h3>ТВ и аудио</h3>
+        <p>Телевизоры, компьютеры, аудиосистемы и DJ-оборудование. Диагностика электроники — на месте.</p>
+        <span class="foot"><span class="go">Заявка<svg class="ic"><use href="#i-arrow"/></svg></span></span>
       </a>
     </div>
+    <p class="svc-note rv">Ещё ремонтируем пылесосы, швейные машины, вытяжки, вентиляторы, плойки и коммерческое оборудование — спросите по телефону.</p>
   </div>
 </section>
 
@@ -405,27 +446,27 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
       <article class="adv rv" style="--i:0">
         <svg class="ic"><use href="#i-wrench"/></svg>
         <h3>Опыт</h3>
-        <p>У каждого мастера своя специализация по типам техники и брендам. Попадание с первого раза.</p>
+        <p>Мастера с опытом более 10 лет: специализируются на брендах и типах техники.</p>
       </article>
       <article class="adv rv" style="--i:1">
         <svg class="ic"><use href="#i-shield"/></svg>
         <h3>Гарантия</h3>
-        <p>До 24 месяцев на работы и запчасти. Условия прописаны в договоре, а не на словах.</p>
+        <p>На все виды работ и отдельно на запчасти. Условия фиксируем в документах, а не на словах.</p>
       </article>
       <article class="adv rv" style="--i:2">
         <svg class="ic"><use href="#i-box"/></svg>
         <h3>Запчасти</h3>
-        <p>Оригинальные детали и проверенные аналоги, чаще всего везём с собой: ремонт за один визит.</p>
+        <p>Подбираем деталь под модель — оригинал или проверенный аналог, цену и срок согласуем заранее.</p>
       </article>
       <article class="adv rv" style="--i:3">
         <svg class="ic"><use href="#i-clock"/></svg>
         <h3>Скорость</h3>
-        <p>Типовой ремонт занимает 1–2 часа на месте. Если нужна мастерская, заберём и привезём сами.</p>
+        <p>Выезд по Рязани от 30 минут, максимум 90 минут после заявки.</p>
       </article>
       <article class="adv adv-photo rv" style="--i:4">
         <!-- TODO: заменить на реальное фото мастера/процесса ремонта (1600×900) -->
         <img src="https://picsum.photos/seed/profftech-workshop/1600/900.jpg" alt="Мастер за работой" loading="lazy">
-        <span class="cap"><svg class="ic"><use href="#i-pin"/></svg>Выезд по городу и области</span>
+        <span class="cap"><svg class="ic"><use href="#i-pin"/></svg>Рязань, ул. Стройкова, 38 — мастерская</span>
       </article>
     </div>
   </div>
@@ -436,33 +477,33 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Как проходит ремонт</h2>
-      <p>Прозрачные этапы: вы всегда знаете, что происходит с техникой и сколько это стоит.</p>
+      <p>Прозрачные этапы: вы знаете, что происходит с техникой и сколько это стоит.</p>
     </div>
     <ol class="steps rv">
       <div class="rail" aria-hidden="true"><i></i></div>
       <li class="step">
         <span class="dot"><svg class="ic"><use href="#i-send"/></svg></span>
         <h3>Заявка</h3>
-        <p>Оставьте заявку или позвоните: уточним модель и неисправность, сориентируем по цене.</p>
-        <span class="when">ответ за 5 минут</span><!-- mock: подтвердить SLA -->
+        <p>Оставьте заявку или позвоните: перезвоним в течение 5 минут, уточним модель и неисправность.</p>
+        <span class="when">ответ за 5 минут</span>
       </li>
       <li class="step">
         <span class="dot"><svg class="ic"><use href="#i-search"/></svg></span>
         <h3>Диагностика</h3>
-        <p>Мастер приезжает в согласованное время, определяет причину и фиксирует стоимость до начала работ.</p>
-        <span class="when">15–30 минут на месте</span>
+        <p>Мастер приезжает по Рязани от 30 минут и находит причину. Диагностика — 1 000 ₽.</p>
+        <span class="when">1 000 ₽</span>
       </li>
       <li class="step">
         <span class="dot"><svg class="ic"><use href="#i-wrench"/></svg></span>
         <h3>Ремонт</h3>
-        <p>Чиним на месте или забираем в мастерскую. Работаем по договору, запчасти обычно с собой.</p>
-        <span class="when">от 1 часа</span>
+        <p>Согласуем смету — работа плюс запчасть — и чиним на дому или в мастерской.</p>
+        <span class="when">смета до работ</span>
       </li>
       <li class="step">
         <span class="dot"><svg class="ic"><use href="#i-done"/></svg></span>
         <h3>Выдача</h3>
-        <p>Проверяем результат вместе с вами, выдаём договор и гарантийный талон.</p>
-        <span class="when">гарантия до 24 мес.</span>
+        <p>Проверяем технику вместе с вами, выдаём документы и гарантию на работы и запчасти.</p>
+        <span class="when">гарантия</span>
       </li>
     </ol>
   </div>
@@ -473,25 +514,86 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <div class="wrap">
     <div class="sec-head rv">
       <h2>Стоимость</h2>
-      <p>Цены «от»: итоговую сумму мастер называет после диагностики и до начала работ.</p>
+      <p>Диагностика — 1 000 ₽. Дальше цена складывается из работы и запчасти: итог зависит от модели техники, её состояния и стоимости детали.</p>
+    </div>
+    <div class="calc rv">
+      <div class="calc-item"><svg class="ic"><use href="#i-search"/></svg><b>Диагностика — 1 000 ₽</b><p>Находим причину и говорим, что и сколько стоит починить.</p></div>
+      <div class="calc-item"><svg class="ic"><use href="#i-box"/></svg><b>Запчасть</b><p>Цена детали зависит от модели и наличия: оригинал или проверенный аналог.</p></div>
+      <div class="calc-item"><svg class="ic"><use href="#i-wrench"/></svg><b>Работа</b><p>Сложность ремонта и доступ к узлу: часть работ делаем только в мастерской.</p></div>
+      <div class="calc-sum"><b>Итог — до начала работ</b><p>Мастер называет сумму и делает только то, что вы согласовали.</p></div>
     </div>
     <div class="price-grid">
       <div class="rv">
-        <div class="plist"><!-- mock: плейсхолдеры, заменить реальным прайсом -->
-          <div class="prow"><span>Выезд и диагностика</span><b>0 ₽ при ремонте</b></div>
-          <div class="prow"><span>Кофемашина</span><b>от 1 500 ₽</b></div>
-          <div class="prow"><span>Стиральная или посудомоечная машина</span><b>от 1 200 ₽</b></div>
-          <div class="prow"><span>Холодильник</span><b>от 1 300 ₽</b></div>
-          <div class="prow"><span>Пылесос, включая роботы</span><b>от 1 000 ₽</b></div>
-          <div class="prow"><span>Мелкая бытовая техника</span><b>от 800 ₽</b></div>
+        <div class="plist"><!-- нижние границы по прайсу компании, источник: proff.tech -->
+          <div class="prow"><span>Стиральные и сушильные машины</span><b>от 500 ₽</b></div>
+          <div class="prow"><span>Посудомоечные машины</span><b>от 500 ₽</b></div>
+          <div class="prow"><span>Холодильники</span><b>от 350 ₽</b></div>
+          <div class="prow"><span>Варочные панели</span><b>от 1 100 ₽</b></div>
+          <div class="prow"><span>Бойлеры и водонагреватели</span><b>от 1 200 ₽</b></div>
+          <div class="prow"><span>Кофемашины и кофеварки</span><b>от 390 ₽</b></div>
+          <div class="prow"><span>Микроволновки</span><b>от 500 ₽</b></div>
+          <div class="prow"><span>Телевизоры</span><b>от 900 ₽</b></div>
         </div>
-        <p class="price-note">Если ремонт нецелесообразен, честно скажем и вернём технику собранной. Полный прайс подскажет оператор по телефону.</p>
+        <p class="price-note">Это нижние границы простых работ из прайса компании. Итог зависит от модели, состояния техники и стоимости запчасти; цены не являются публичной офертой.</p>
       </div>
       <aside class="pnote rv" style="--i:1">
-        <h3>Точная цена — до начала работ</h3>
-        <p>Мастер проводит диагностику и согласует стоимость. Работы начинаются только после вашего «да».</p>
+        <h3>Почему цена не фиксированная</h3>
+        <p>Одна и та же поломка на разных моделях стоит по-разному: деталь для бюджетной и премиальной техники отличается в разы. Точную сумму мастер называет после диагностики — до начала работ.</p>
         <button class="btn btn-primary" data-open type="button">Вызвать мастера</button>
       </aside>
+    </div>
+  </div>
+</section>
+
+<!-- КАРТА -->
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Мастерская в Рязани</h2>
+      <p>Ул. Стройкова, 38, помещение Н35, 1 этаж — ежедневно с 9:00 до 20:00. Или вызовите мастера на дом: выезд от 30 минут.</p>
+    </div>
+    <div class="map-grid">
+      <div class="addr-card rv">
+        <h3>ООО «ПРОФТЕХ»</h3>
+        <ul class="addr-list">
+          <li><svg class="ic"><use href="#i-pin"/></svg><span>390026, Рязань,<br>ул. Стройкова, 38, пом. Н35, 1 этаж</span></li>
+          <li><svg class="ic"><use href="#i-clock"/></svg><span>Ежедневно, 9:00–20:00</span></li>
+          <li><svg class="ic"><use href="#i-phone"/></svg><span><a href="tel:+74912511441">+7 (4912) 511-441</a><br><a href="tel:+79209611441">+7 (920) 961-14-41</a></span></li>
+          <li><svg class="ic"><use href="#i-send"/></svg><span><a href="mailto:proff.tech@yandex.ru">proff.tech@yandex.ru</a></span></li>
+        </ul>
+        <div class="addr-actions">
+          <a class="btn btn-primary" href="https://yandex.ru/maps/?rtext=~54.616595%2C39.717832&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+          <a class="btn btn-ghost" href="tel:+74912511441">Позвонить</a>
+        </div>
+      </div>
+      <div class="map-wrap rv" style="--i:1">
+        <div class="mtabs" role="tablist" aria-label="Карты">
+          <button class="mtab" type="button" role="tab" aria-selected="true" data-map="yandex">Яндекс Карты</button>
+          <button class="mtab" type="button" role="tab" aria-selected="false" data-map="2gis">2ГИС</button>
+          <button class="mtab" type="button" role="tab" aria-selected="false" data-map="google">Google</button>
+          <button class="mtab" type="button" role="tab" aria-selected="false" data-map="osm">OpenStreetMap</button>
+        </div>
+        <div class="map-frame">
+          <div class="mpanel" data-panel="yandex">
+            <iframe title="Яндекс Карты: Рязань, ул. Стройкова, 38" src="https://yandex.ru/map-widget/v1/?ll=39.717832%2C54.616595&amp;z=17&amp;pt=39.717832,54.616595,pm2blm" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="mpanel" data-panel="2gis" hidden>
+            <div class="gis-card">
+              <span class="gis-badge">2ГИС</span>
+              <p class="gis-rating"><b>4,5</b><span>35 оценок · 33 отзыва</span></p>
+              <p>Карточка компании с фото работ, отзывами и актуальным телефоном. 2ГИС запрещает встраивать свои карты на чужие сайты, поэтому открываем карточку в новой вкладке.</p>
+              <a class="btn btn-primary" href="https://2gis.ru/ryazan/firm/70000001074851469" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+            </div>
+          </div>
+          <div class="mpanel" data-panel="google" hidden>
+            <iframe title="Google Карты: Рязань, ул. Стройкова, 38" data-src="https://www.google.com/maps?q=54.616595,39.717832&amp;z=17&amp;hl=ru&amp;output=embed" loading="lazy"></iframe>
+          </div>
+          <div class="mpanel" data-panel="osm" hidden>
+            <iframe title="OpenStreetMap: Рязань, ул. Стройкова, 38" data-src="https://www.openstreetmap.org/export/embed.html?bbox=39.7132%2C54.6149%2C39.7224%2C54.6183&amp;layer=mapnik&amp;marker=54.616595%2C39.717832" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="map-note">Карты: Яндекс, 2ГИС, Google, OpenStreetMap. Рейтинг и отзывы — из карточки 2ГИС.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -501,10 +603,10 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <div class="wrap lead-grid">
     <div class="col rv">
       <h2>Оставьте заявку</h2>
-      <p>Перезвоним в течение 15 минут в рабочее время, ответим на вопросы и подберём удобное время визита.</p>
+      <p>Перезвоним в течение 5 минут в рабочее время, ответим на вопросы и подберём удобное время визита.</p>
       <ul class="checks">
-        <li><svg class="ic"><use href="#i-check"/></svg>Выезд и диагностика — 0 ₽ при ремонте</li>
-        <li><svg class="ic"><use href="#i-check"/></svg>Договор и гарантийный талон на руки</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Диагностика — 1 000 ₽, смета до начала работ</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Гарантия на работы и запчасти — в документах</li>
         <li><svg class="ic"><use href="#i-check"/></svg>Оплата после проверки результата</li>
       </ul>
     </div>
@@ -517,7 +619,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
             <option value="coffee">Кофемашина</option>
             <option value="large">Крупная техника</option>
             <option value="small">Мелкая техника</option>
-            <option value="vac">Пылесос</option>
+            <option value="av">ТВ и аудио</option>
             <option value="other">Другое</option>
           </select>
         </div>
@@ -542,7 +644,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
       <div class="okbox" role="status">
         <svg class="ic"><use href="#i-done"/></svg>
         <h3>Заявка принята</h3>
-        <p>Перезвоним в течение 15 минут в рабочее время. Если что-то срочное — звоните: +7 495 120-77-30.</p>
+        <p>Перезвоним в течение 5 минут в рабочее время. Если что-то срочное — звоните: +7 (4912) 511-441.</p>
       </div>
     </div>
   </div>
@@ -558,15 +660,16 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
           <span class="mark"><svg class="ic"><use href="#i-bolt"/></svg></span>
           <b>PROFF</b><span>.tech</span>
         </a>
-        <p>Ремонт бытовой техники и электроники. <!-- mock: указать город --></p>
-        <div class="f-rek">ООО «Профтех» · ИНН, ОГРН — указать реквизиты<!-- для модерации Директа: реальные реквизиты компании --></div>
+        <p>Ремонт бытовой техники и электроники в Рязани. Мастерская: ул. Стройкова, 38, пом. Н35.</p>
+        <div class="f-rek">ООО «ПРОФТЕХ» · ИНН 6234201063<!-- TODO: ОГРН (требование модерации Директа) --><br>Информация на сайте, включая цены, не является публичной офертой (ст. 437 ГК РФ).</div>
       </div>
       <div class="f-col">
         <h4>Контакты</h4>
-        <a href="tel:+74951207730"><svg class="ic"><use href="#i-phone"/></svg>+7 495 120-77-30</a>
-        <a href="mailto:info@proff.tech"><!-- mock -->info@proff.tech</a>
-        <span><svg class="ic"><use href="#i-clock"/></svg>Ежедневно 8:00–22:00<!-- mock: часы --></span>
-        <span><svg class="ic"><use href="#i-pin"/></svg>г. Москва, выезд по городу и области</span>
+        <a href="tel:+74912511441"><svg class="ic"><use href="#i-phone"/></svg>+7 (4912) 511-441</a>
+        <a href="tel:+79209611441"><svg class="ic"><use href="#i-phone"/></svg>+7 (920) 961-14-41</a>
+        <a href="mailto:proff.tech@yandex.ru"><svg class="ic"><use href="#i-send"/></svg>proff.tech@yandex.ru</a>
+        <span><svg class="ic"><use href="#i-clock"/></svg>Ежедневно, 9:00–20:00</span>
+        <span><svg class="ic"><use href="#i-pin"/></svg>Рязань, ул. Стройкова, 38</span>
       </div>
       <div class="f-col">
         <h4>Разделы</h4>
@@ -589,7 +692,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="mtitle">
     <button class="x" data-close type="button" aria-label="Закрыть окно"><svg class="ic ic-18"><use href="#i-x"/></svg></button>
     <h3 id="mtitle">Вызвать мастера</h3>
-    <p class="msub">Перезвоним в течение 15 минут и назначим удобное время визита.</p>
+    <p class="msub">Перезвоним в течение 5 минут и назначим удобное время визита.</p>
     <form class="lead-form" novalidate>
       <div class="field">
         <label for="topic2">Что нужно починить?</label>
@@ -598,7 +701,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
           <option value="coffee">Кофемашина</option>
           <option value="large">Крупная техника</option>
           <option value="small">Мелкая техника</option>
-          <option value="vac">Пылесос</option>
+          <option value="av">ТВ и аудио</option>
           <option value="other">Другое</option>
         </select>
       </div>
@@ -623,7 +726,7 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
     <div class="okbox" role="status">
       <svg class="ic"><use href="#i-done"/></svg>
       <h3>Заявка принята</h3>
-      <p>Перезвоним в течение 15 минут в рабочее время. Окно можно закрыть.</p>
+      <p>Перезвоним в течение 5 минут в рабочее время. Окно можно закрыть.</p>
     </div>
   </div>
 </div>
@@ -731,6 +834,20 @@ document.querySelectorAll('.lead-form').forEach(function(form){
     if(!ok){var bad=form.querySelector('.field.bad input');if(bad)bad.focus();return;}
     /* Прототип: здесь отправка в CRM/форму Tilda (fetch POST). */
     card.classList.add('done');
+  });
+});
+
+/* ---- переключатель карт ---- */
+document.querySelectorAll('.mtab').forEach(function(tab){
+  tab.addEventListener('click',function(){
+    var key=tab.getAttribute('data-map');
+    document.querySelectorAll('.mtab').forEach(function(b){ b.setAttribute('aria-selected', b===tab ? 'true' : 'false'); });
+    document.querySelectorAll('.mpanel').forEach(function(p){
+      var on=p.getAttribute('data-panel')===key;
+      p.hidden=!on;
+      var f=p.querySelector('iframe[data-src]');
+      if(on && f && !f.getAttribute('src')){ f.setAttribute('src', f.getAttribute('data-src')); }
+    });
   });
 });
 

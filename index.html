@@ -234,7 +234,7 @@ nav.menu a:hover{color:var(--text)}
 .field label{display:block;font-size:.85rem;font-weight:500;color:var(--soft);margin-bottom:7px}
 .field input,.field select{width:100%;font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 14px;
   transition:border-color var(--t-micro) ease,box-shadow var(--t-micro) ease}
-.field input::placeholder{color:#5B6478}
+.field input::placeholder{color:var(--muted)}
 .field input:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(46,91,255,.22)}
 .field.bad input{border-color:var(--danger)}
 .err{display:none;color:var(--danger);font-size:.83rem;margin-top:7px}
@@ -254,15 +254,15 @@ nav.menu a:hover{color:var(--text)}
 .okbox .ic{width:40px;height:40px;color:var(--accent-text)}
 .okbox h3{font-size:1.25rem;letter-spacing:-.01em}
 .okbox p{color:var(--soft);font-size:.95rem}
-.form-card.done form{display:none}
-.form-card.done .okbox{display:flex}
+.form-card.done form,.sheet.done form{display:none}
+.form-card.done .okbox,.sheet.done .okbox{display:flex}
 
 /* ============ ФУТЕР ============ */
 footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)}
 .f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:44px;margin-bottom:48px}
 .f-brand p{color:var(--muted);font-size:.9rem;margin-top:14px;max-width:34ch}
-.f-rek{margin-top:14px;color:#5B6478;font-size:.82rem}
-.f-col h4{font-size:.85rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.f-rek{margin-top:14px;color:var(--muted);font-size:.82rem}
+.f-col h3{font-size:.85rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
 .f-col a,.f-col span{display:flex;align-items:center;gap:9px;color:var(--soft);text-decoration:none;font-size:.93rem;padding:5px 0;transition:color var(--t-micro) ease}
 .f-col a:hover{color:var(--text)}
 .f-col .ic{width:17px;height:17px;color:var(--muted)}
@@ -674,22 +674,22 @@ footer{border-top:1px solid var(--line);padding:64px 0 96px;background:var(--bg)
           <span class="logo-name"><b>PROFF</b><span>.tech</span></span>
         </a>
         <p>Ремонт бытовой техники и электроники в Рязани. Мастерская: ул. Стройкова, 38, пом. Н35.</p>
-        <div class="f-rek">ООО «ПРОФТЕХ» · ИНН 6234201063<!-- TODO: ОГРН (требование модерации Директа) --><br>Информация на сайте, включая цены, не является публичной офертой (ст. 437 ГК РФ).</div>
+        <div class="f-rek">ООО «ПРОФТЕХ» · ИНН 6234201063 · ОГРН 1226200006779<br>Информация на сайте, включая цены, не является публичной офертой (ст. 437 ГК РФ).</div>
       </div>
       <div class="f-col">
-        <h4>Контакты</h4>
+        <h3>Контакты</h3>
         <a href="tel:+74912511441"><svg class="ic"><use href="#i-phone"/></svg>+7 (4912) 511-441</a>
         <a href="tel:+79209611441"><svg class="ic"><use href="#i-phone"/></svg>+7 (920) 961-14-41</a>
         <a href="mailto:proff.tech@yandex.ru"><svg class="ic"><use href="#i-send"/></svg>proff.tech@yandex.ru</a>
         <span><svg class="ic"><use href="#i-clock"/></svg>Ежедневно, 9:00–20:00</span>
       </div>
       <div class="f-col">
-        <h4>Разделы</h4>
+        <h3>Разделы</h3>
         <a href="#services">Услуги</a>
         <a href="#steps">Как работаем</a>
         <a href="#prices">Цены</a>
         <a href="#lead">Оставить заявку</a>
-        <span style="gap:14px;padding-top:8px"><a href="#" aria-label="ВКонтакте">VK</a><a href="#" aria-label="Telegram">Telegram</a><a href="#" aria-label="WhatsApp">WhatsApp</a></span>
+        <span style="gap:14px;padding-top:8px"><a href="#" aria-label="VK — ВКонтакте">VK</a><a href="#" aria-label="Telegram">Telegram</a><a href="#" aria-label="WhatsApp">WhatsApp</a></span>
       </div>
     </div>
     <div class="f-bottom">
@@ -799,6 +799,7 @@ if(c && !matchMedia('(prefers-reduced-motion: reduce)').matches){
 var ov=document.getElementById('ov'),sheet=ov.querySelector('.sheet'),lastFocus=null;
 function openM(btn){
   lastFocus=btn||document.activeElement;
+  sheet.classList.remove('done');/* новое открытие — снова форма, а не прошлый экран успеха */
   var topic=btn&&btn.getAttribute('data-topic');
   if(topic){var sel=sheet.querySelector('select');if(sel)sel.value=topic;}
   ov.classList.add('open');ov.setAttribute('aria-hidden','false');
@@ -853,7 +854,7 @@ document.addEventListener('click',function(e){
 
 /* ---- формы: валидация по blur, очистка по input, отправка в CRM ---- */
 document.querySelectorAll('.lead-form').forEach(function(form){
-  var card=form.closest('.form-card');
+  var card=form.closest('.form-card')||form.parentElement;/* в модалке форма лежит прямо в .sheet */
   function fEl(k){return form.querySelector('[data-f="'+k+'"]');}
   function nameOk(v){return v.trim().length>=2;}
   function phoneOk(v){var d=v.replace(/\D/g,'');return d.length===11&&(d[0]==='7'||d[0]==='8');}

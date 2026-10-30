@@ -892,6 +892,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </fieldset>
         <fieldset class="qstep" data-step="2">
           <legend>Что происходит?</legend>
+          <p id="qSelectedDevice" class="qhint"></p>
           <div class="qopts">
             <label class="qopt"><input type="radio" name="symptom" value="Не включается"><span>Не включается</span></label>
             <label class="qopt"><input type="radio" name="symptom" value="Не держит заряд"><span>Не держит заряд</span></label>
@@ -1166,13 +1167,112 @@ if(!BITRIX_WEBHOOK_URL){
 }
 var cur=1;
 var quizStarted=false;
+var symptomDevice=null;
+var SYMPTOMS_BY_DEVICE={
+  "Вертикальный пылесос": [
+    "Слабо всасывает",
+    "Быстро разряжается",
+    "Не заряжается",
+    "Не вращается щётка",
+    "Выключается во время уборки",
+    "Другое — расскажу по телефону"
+  ],
+  "Робот-пылесос": [
+    "Не строит карту или теряется",
+    "Не возвращается на базу",
+    "Не заряжается",
+    "Не собирает мусор",
+    "Не подаёт воду при влажной уборке",
+    "Другое — расскажу по телефону"
+  ],
+  "Кофемашина": [
+    "Не готовит кофе",
+    "Не подаёт воду",
+    "Протекает",
+    "Не мелет зёрна",
+    "Не взбивает молоко",
+    "Другое — расскажу по телефону"
+  ],
+  "Телевизор 55+": [
+    "Не включается",
+    "Есть звук, но нет изображения",
+    "Полосы или пятна на экране",
+    "Нет звука",
+    "Сам выключается или перезагружается",
+    "Другое — расскажу по телефону"
+  ],
+  "Электросамокат": [
+    "Не включается",
+    "Не заряжается",
+    "Быстро разряжается",
+    "Не едет или дёргается",
+    "Ошибка на дисплее",
+    "Другое — расскажу по телефону"
+  ],
+  "Электровелосипеды": [
+    "Не включается дисплей",
+    "Не работает помощь при педалировании",
+    "Мотор не тянет или дёргается",
+    "Не заряжается батарея",
+    "Быстро разряжается батарея",
+    "Другое — расскажу по телефону"
+  ],
+  "Мойки высокого давления": [
+    "Нет или слабое давление",
+    "Давление идёт рывками",
+    "Протекает вода",
+    "Не включается двигатель",
+    "Не отключается после отпускания курка",
+    "Другое — расскажу по телефону"
+  ],
+  "Комбайны и мясорубки": [
+    "Не включается двигатель",
+    "Мотор гудит, но привод не вращается",
+    "Не вращается шнек или насадка",
+    "Треск или скрежет в редукторе",
+    "Останавливается под нагрузкой",
+    "Другое — расскажу по телефону"
+  ],
+  "Насосные станции": [
+    "Не включается насос",
+    "Не набирает давление",
+    "Часто включается и выключается",
+    "Не отключается насос",
+    "Протекает вода",
+    "Другое — расскажу по телефону"
+  ],
+  "Яндекс Станция MAX": [
+    "Не включается",
+    "Нет звука или звук искажён",
+    "Не слышит голосовые команды",
+    "Не подключается к Wi-Fi",
+    "Перезагружается или зависает",
+    "Другое — расскажу по телефону"
+  ],
+  "Сборка и ремонт батарей": [
+    "Нужна сборка батареи 18650 / 21700",
+    "Батарея не заряжается",
+    "Быстро разряжается или потеряла ёмкость",
+    "Отключается под нагрузкой",
+    "Не выдаёт напряжение",
+    "Другое — расскажу по телефону"
+  ]
+};
 
 function showStep(n){
   cur=n;
   if(n===2){
     var device=picked(1);var value=device?device.value:'';
-    var options=value==='Телевизор 55+'?['Не включается','Нет изображения','Нет звука','Полосы на экране','Выключается','Другое']:value==='Кофемашина'?['Не включается','Не подаёт воду','Шумит','Протекает','Не готовит кофе','Другое']:value==='Электросамокат'?['Не включается','Не держит заряд','Не едет','Проблема с тормозами','Ошибка на дисплее','Другое']:['Не включается','Работает с перебоями','Шумит','Повреждён узел','Работает некорректно','Другое'];
-    steps[1].querySelectorAll('.qopt').forEach(function(label,i){var input=label.querySelector('input');if(input.value!==options[i])input.checked=false;input.value=options[i];label.querySelector('span').textContent=options[i];});markPicked();
+    var options=SYMPTOMS_BY_DEVICE[value];
+    if(!options){showStep(1);return;}
+    steps[1].querySelectorAll('.qopt').forEach(function(label,i){
+      var input=label.querySelector('input');
+      if(symptomDevice!==value)input.checked=false;
+      input.value=options[i];label.querySelector('span').textContent=options[i];
+    });
+    symptomDevice=value;
+    document.getElementById('qSelectedDevice').textContent='Техника: '+value;
+    markPicked();
   }
   steps.forEach(function(s){s.classList.toggle('on',+s.getAttribute('data-step')===n);});
   stepN.textContent=n;
@@ -1198,6 +1298,10 @@ function markPicked(){
 }
 document.querySelectorAll('.qopt input').forEach(function(inp){
   inp.addEventListener('change',function(){
+    if(inp.name==='device'){
+      symptomDevice=null;
+      steps[1].querySelectorAll('input[type="radio"]').forEach(function(r){r.checked=false;});
+    }
     markPicked();
     document.getElementById('qErr'+cur).hidden=true;
     if(!quizStarted){quizStarted=true;goal('quiz_start');}

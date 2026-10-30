@@ -477,28 +477,35 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
 @media(max-width:880px){nav.menu>a{font-size:16px}nav.menu>a::after{display:none}.device-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}.hero-grid{gap:24px}.hero h1{font-size:36px}.hero .lede{font-size:14px}}
 @media(max-width:600px){.hero{padding:20px 0 24px}.hero-grid{gap:13px}.hero-grid>div h1{font-size:30px;line-height:1.06;max-width:100%;margin:0}.hero-grid>div .pill{font-size:10px}.hero-visual{border-radius:18px;aspect-ratio:2.1}.hero-visual img{aspect-ratio:auto;height:100%;width:100%;object-fit:cover}.visual-label{font-size:8px;top:10px;left:12px}.hero-grid>div .lede{font-size:13px;line-height:1.5}.hero-choice{gap:8px}.hero-choice>span,.hero-choice a{font-size:11px}.hero .cta-note a{font-size:17px}.hero-facts{padding-top:10px}.hero-facts li,.hero-facts li:first-child{padding:6px 10px;border:0!important}.hero-facts b{font-size:11px}.hero-facts span{font-size:10px}.hero-facts li:nth-child(odd){padding-left:0}.device-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-top:22px;padding-bottom:22px}.device-shortcuts>a{font-size:11px;padding:8px;gap:7px}.device-shortcuts>a:last-child{grid-column:1/-1}.device-thumb{width:40px;height:34px}section:not(.hero){padding-top:42px;padding-bottom:42px}.svc-ill,.svc:nth-child(n+4) .svc-ill{aspect-ratio:2}.svc-body{padding:20px}.svc-grid{gap:18px}.svc-body h3{font-size:21px}.svc-foot{flex-wrap:nowrap}.from{font-size:17px;min-width:0}.from small{font-size:10px}.svc-link{padding:8px 10px;font-size:11px;flex:none}.diag-price b{font-size:25px}.diag-card{padding:18px;gap:10px}.diag-card>.ic{display:none}.quiz-card{padding:20px}.adv{padding:22px}.mbar{background:var(--surface);border-top:1px solid var(--line)}}
 @media(prefers-reduced-motion:reduce){.device-shortcuts>a,.btn,.svc,.product-photo,nav.menu>a::after{transition:none!important}.device-shortcuts>a:hover,.btn-primary:hover{transform:none}}
-@media(max-width:360px){.site .wrap{gap:8px}.logo{gap:6px;font-size:16px}.device-shortcuts>a{min-width:0}.device-shortcuts>a>span{min-width:0}.svc-foot{flex-wrap:wrap}} </style>
+@media(max-width:360px){.site .wrap{gap:8px}.logo{gap:6px;font-size:16px}.device-shortcuts>a{min-width:0}.device-shortcuts>a>span{min-width:0}.svc-foot{flex-wrap:wrap}} 
+.more-services{max-width:1164px;margin:0 auto;padding:24px 28px 48px}.more-services>h3{font-size:26px;margin-bottom:10px}.more-services>p{color:var(--soft);margin-bottom:20px}.service-detail{border-bottom:1px solid var(--line)}.service-detail summary{cursor:pointer;padding:18px 0;font-weight:600;min-height:48px}.service-detail>div{padding:0 0 20px;color:var(--soft);line-height:1.8}.service-detail .svc-link{margin-top:12px}.step{padding-top:66px;min-width:0;overflow:visible}.step h3,.step p,.step .when{visibility:visible;opacity:1;position:relative;z-index:1}.steps{overflow:visible}.rail{z-index:0;pointer-events:none}.qstep[data-step="1"] .qopt:last-child{grid-column:auto}
+@media(max-width:1000px){.step{padding-top:0;padding-left:66px}}@media(prefers-reduced-motion:reduce){.js .rv.in{animation:none}}
+
+/* QA: timeline alignment and consistent symbol metrics */
+.ic{stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}.steps{padding-top:0;gap:26px}.steps::before{content:'';position:absolute;top:24px;left:24px;right:calc((100% - 104px)/5 - 24px);height:2px;background:var(--accent);pointer-events:none}.step-num{z-index:2}.step{padding-top:66px}.hero-facts li{align-items:flex-start}.hero-facts .ic{margin-top:2px}.more-services>h3{margin-top:28px}.service-detail summary::marker{color:var(--accent-text)}
+@media(max-width:1000px){.steps::before{display:none}.step{padding-top:0;padding-left:66px}.step-num{top:0;left:0}}
+</style>
 </head>
 <body>
 
 <!-- SVG-спрайт иконок (monoline, сетка 24×24, stroke 1.75) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.2.9.4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.8 2Z"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-3.6 8-10V5.5L12 2 4 5.5V12c0 6.4 8 10 8 10Z"/><path d="m9 11.5 2 2 4-4.5"/></symbol>
-  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="m9 14 2 2 4-4"/></symbol>
-  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></symbol>
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4.5" width="20" height="15" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
-  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-8 8L6.8 20.2a2.1 2.1 0 0 1-3-3l6.7-6.7a6 6 0 0 1 8-8l-3.8 3.8Z"/></symbol>
-  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></symbol>
-  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
-  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></symbol>
-  <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor" stroke="none"/></symbol>
-  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13h6l-1 8 9-12h-6l1-6Z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a14 14 0 0 1-7-7l2-2-2-5Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 4-4 7-8 9-4-2-8-5-8-9V6l8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M9 7h6M9 11h6m-6 5 2 2 4-4"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 10h18M7 15h3"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 9h8M8 15h8M10 7v4M14 13v4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 13a8.5 8.5 0 1 1-9.5-9.5A7 7 0 0 0 20.5 13Z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="3"/><path d="M8 21h8m-4-4v4M12 4v13"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V4h8v3M3 12h18m-11 0v3h4v-3"/></symbol>
 </svg>
 
 <a class="skip" href="#quiz">Перейти к форме заявки</a>
@@ -511,10 +518,10 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <span class="logo-name"><b>PROFF</b><span>.tech</span></span>
     </a>
     <nav class="menu" id="siteNav" aria-label="Разделы">
-      <a href="#services">Что ремонтируем</a>
       <a href="#prices">Стоимость</a>
-      <a href="#steps">Как проходит ремонт</a>
+      <a href="#services">Что ремонтируем</a>
       <a href="#contacts">Адрес и контакты</a>
+      <a href="#steps">Как проходит ремонт</a>
       <div class="menu-cta">
         <a class="btn btn-primary" href="#quiz" data-cta>Оставить заявку</a>
         <a class="btn btn-ghost" href="tel:+74912511441"><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
@@ -544,7 +551,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <span class="pill"><svg class="ic"><use href="#i-bolt"/></svg>Рязань, ул. Стройкова, 38 · пн–пт 9:00–19:00</span>
       <h1>Ремонт премиальной техники в&nbsp;Рязани</h1>
       <p class="lede"><b>Dyson, Roborock, De'Longhi.</b> Пылесосы, кофемашины, телевизоры 55″+ и электросамокаты.</p>
-      <div class="hero-choice"><a href="#services">Выбрать технику <span aria-hidden="true">↗</span></a><span>Диагностика — 1&nbsp;000&nbsp;₽</span></div><ul class="trust">
+      <div class="hero-choice"><a href="#services">Выбрать технику <span aria-hidden="true">↗</span></a></div><ul class="trust">
         <li><svg class="ic"><use href="#i-cash"/></svg>Оплата после проверки</li>
         <li><svg class="ic"><use href="#i-doc"/></svg>Работаем по договору</li>
         <li><svg class="ic"><use href="#i-shield"/></svg>Гарантия в документах</li>
@@ -560,7 +567,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
     <figure class="hero-visual"><span class="visual-label">PROFF.tech / Рязань</span><img src="images/appliances-hero.jpg" width="960" height="640" fetchpriority="high" alt="Иллюстрация техники: пылесос, робот-пылесос и кофемашина"></figure><ul class="hero-facts" aria-label="Ключевые условия">
       <li>
         <svg class="ic"><use href="#i-wrench"/></svg>
-        <div><b>Диагностика — фиксированные 1&nbsp;000&nbsp;₽</b><span>При отказе от ремонта оплачивается. При ремонте засчитывается в его стоимость.</span></div>
+        <div><b>Диагностика — 1&nbsp;000&nbsp;₽</b><span>Фиксированная стоимость. При отказе от ремонта оплачивается; при ремонте засчитывается в его стоимость.</span></div>
       </li>
       <li>
         <svg class="ic"><use href="#i-doc"/></svg>
@@ -568,7 +575,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       </li>
       <li>
         <svg class="ic"><use href="#i-clock"/></svg>
-        <div><b>Точный срок — после диагностики</b><span>зависит от поломки и запчастей</span></div>
+        <div><b>Точный срок — после проверки техники</b><span>зависит от поломки и запчастей</span></div>
       </li>
       <li>
         <svg class="ic"><use href="#i-shield"/></svg>
@@ -578,7 +585,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
   </div>
 </section>
 
-<div class="device-shortcuts wrap" aria-label="Быстрый выбор техники"><span>Что сломалось?</span><a href="#quiz" data-device="dyson"><span class="device-thumb product-photo product-dyson" aria-hidden="true"></span><span>Dyson</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="robot"><span class="device-thumb product-photo product-robot" aria-hidden="true"></span><span>Робот-пылесос</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="coffee"><span class="device-thumb product-photo product-coffee" aria-hidden="true"></span><span>Кофемашина</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="tv"><span class="device-thumb product-photo product-tv" aria-hidden="true"></span><span>Телевизор 55″+</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="scooter"><span class="device-thumb product-photo product-scooter" aria-hidden="true"></span><span>Электросамокат</span><span aria-hidden="true">↗</span></a></div>
+<div class="device-shortcuts wrap" aria-label="Быстрый выбор техники"><span>Что сломалось?</span><a href="#quiz" data-device="dyson"><span class="device-thumb product-photo product-dyson" aria-hidden="true"></span><span>Пылесосы</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="robot"><span class="device-thumb product-photo product-robot" aria-hidden="true"></span><span>Робот-пылесос</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="coffee"><span class="device-thumb product-photo product-coffee" aria-hidden="true"></span><span>Кофемашина</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="tv"><span class="device-thumb product-photo product-tv" aria-hidden="true"></span><span>Телевизор 55″+</span><span aria-hidden="true">↗</span></a><a href="#quiz" data-device="scooter"><span class="device-thumb product-photo product-scooter" aria-hidden="true"></span><span>Электросамокат</span><span aria-hidden="true">↗</span></a></div>
 <!-- ================= УСЛУГИ ================= -->
 <section id="services">
   <div class="wrap">
@@ -592,11 +599,11 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <article class="svc rv" style="--i:0">
         <div class="svc-ill" aria-hidden="true"><div class="product-photo product-dyson"></div></div>
         <div class="svc-body">
-          <h3>Пылесосы Dyson</h3>
-          <p class="svc-sub">Вертикальные и беспроводные: V7–V15, Gen5, Micro, Digital Slim</p>
+          <h3>Вертикальные пылесосы</h3>
+          <p class="svc-sub">Вертикальные и беспроводные пылесосы. Dyson V11 / V12 / V15 / Gen5 и другие бренды — по модели и неисправности.</p>
           <ul class="svc-list">
             <li>замена аккумулятора (оригинал и проверенные аналоги)</li>
-            <li>мотор, плата управления, кнопки и разъёмы</li>
+            <li>замена моторного модуля и платы; кнопки и разъёмы</li>
             <li>турбощётки, фильтры, шланги и крепления</li>
           </ul>
           <div class="svc-foot">
@@ -612,12 +619,12 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Роботы-пылесосы</h3>
           <p class="svc-sub">Roborock, Dreame, Xiaomi, Ecovacs, iRobot</p>
           <ul class="svc-list">
-            <li>ремонт LiDAR-модуля и датчиков столкновения</li>
+            <li>замена LiDAR-модуля и датчиков столкновения</li>
             <li>замена аккумулятора, двигателей и щёток</li>
             <li>чистка от пыли и шерсти, док-станция, прошивка</li>
           </ul>
           <div class="svc-foot">
-            <span class="from">от 3&nbsp;500&nbsp;₽<small>ремонт LiDAR · работа, без запчасти</small></span>
+            <span class="from">После проверки техники<small>замена LiDAR-модуля</small></span>
             <a class="svc-link" href="#quiz" data-device="robot">Узнать цену <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
@@ -647,11 +654,11 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <p class="svc-sub">Samsung, LG, Sony, Xiaomi — с диагональю от 55 дюймов</p>
           <ul class="svc-list">
             <li>ремонт LED-подсветки и линеек LED</li>
-            <li>блоки питания, T-CON, мейн-платы, разъёмы</li>
-            <li>диагностика в мастерской на стенде</li>
+            <li>замена блоков питания, T-CON и мейн-плат; разъёмы</li>
+            <li>проверка в мастерской на стенде</li>
           </ul>
           <div class="svc-foot">
-            <span class="from">цена после диагностики<small>зависит от диагонали и панели</small></span>
+            <span class="from">цена после проверки техники<small>зависит от диагонали и панели</small></span>
             <a class="svc-link" href="#quiz" data-device="tv">Узнать цену <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
@@ -668,15 +675,16 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
             <li>восстановление после влаги и «зимнего» хранения</li>
           </ul>
           <div class="svc-foot">
-            <span class="from">цена после диагностики<small>зависит от модели и узла</small></span>
+            <span class="from">цена после проверки техники<small>зависит от модели и узла</small></span>
             <a class="svc-link" href="#quiz" data-device="scooter">Узнать цену <svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </article>
 
     </div>
-    <p class="svc-note rv">Не берём в ремонт: дешёвую безымянную технику, моющие пылесосы и приборы, ремонт которых стоит дороже новых. Если не берёмся — честно скажем об этом на диагностике.</p>
+    
   </div>
+<div class="more-services"><h3>Ещё техника и аккумуляторные сборки</h3><details class="service-detail"><summary>Сборка и ремонт батарей</summary><div><p><b>Подкатегории:</b> аккумуляторные сборки на ячейках 18650 и 21700.</p><p>Сборка и ремонт батарей. Состав работ и стоимость согласуем после проверки техники.</p><a class="svc-link" href="#quiz" data-device="battery">Обсудить батарею →</a></div></details><details class="service-detail"><summary>Яндекс Станция MAX</summary><div><p><b>Подкатегории:</b> MAX и MAX с Zigbee</p><p><b>Типовые работы:</b> Питание и разъёмы; динамики и микрофоны; замена модулей и шлейфов.</p><p>Стоимость и срок — после проверки техники.</p><a class="svc-link" href="#quiz" data-device="station">Обсудить ремонт →</a></div></details><details class="service-detail"><summary>Насосные станции</summary><div><p><b>Подкатегории:</b> Станции повышения давления: Grundfos, DAB, Pedrollo</p><p><b>Типовые работы:</b> Клапаны и реле; уплотнения и гидравлика; замена блоков управления.</p><p>Стоимость и срок — после проверки техники.</p><a class="svc-link" href="#quiz" data-device="pump">Обсудить ремонт →</a></div></details><details class="service-detail"><summary>Комбайны и мясорубки</summary><div><p><b>Подкатегории:</b> Moulinex Double Force / HV8 / HV10 и аналогичные крупные модели</p><p><b>Типовые работы:</b> Шестерни и редукторы; привод и втулки; выключатели.</p><p>Стоимость и срок — после проверки техники.</p><a class="svc-link" href="#quiz" data-device="moulinex">Обсудить ремонт →</a></div></details><details class="service-detail"><summary>Мойки высокого давления</summary><div><p><b>Подкатегории:</b> Karcher K4 / K5 / K7 и аналоги</p><p><b>Типовые работы:</b> Клапаны и выключатели; гидравлический блок; уплотнения и питание.</p><p>Стоимость и срок — после проверки техники.</p><a class="svc-link" href="#quiz" data-device="washer">Обсудить ремонт →</a></div></details><details class="service-detail"><summary>Электровелосипеды</summary><div><p><b>Подкатегории:</b> Городские модели: электрическая часть</p><p><b>Типовые работы:</b> Датчики и контроллеры; дисплеи и проводка; зарядные цепи.</p><p>Стоимость и срок — после проверки техники.</p><a class="svc-link" href="#quiz" data-device="ebike">Обсудить ремонт →</a></div></details></div>
 </section>
 
 <!-- ================= ЦЕНЫ ================= -->
@@ -685,7 +693,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
     <div class="sec-head rv">
       <span class="kicker">Цены</span>
       <h2>Стоимость: честно и заранее</h2>
-      <p>Диагностика платная — это работа инженера: разбор, замеры, поиск причины. Если делаете ремонт у нас, её стоимость засчитывается в заказ.</p>
+      <p>Согласуем стоимость работ и запчастей до начала ремонта.</p>
     </div>
     <div class="price-grid">
       <div class="rv">
@@ -693,21 +701,21 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <svg class="ic"><use href="#i-wrench"/></svg>
           <div>
             <b>Диагностика</b>
-            <p>Определяем неисправность и называем стоимость ремонта. Диагностика стоит фиксированные 1&nbsp;000&nbsp;₽. Если после этого вы отказываетесь от ремонта, диагностика всё равно оплачивается — 1&nbsp;000&nbsp;₽. При ремонте эта сумма засчитывается в его стоимость.</p>
+            <p>Определяем неисправность и называем стоимость ремонта. Стоимость фиксирована и указана на первом экране. Если после уточнения поломки и стоимости ремонта вы отказываетесь от ремонта, проведённая проверка оплачивается. При ремонте эта сумма засчитывается в его стоимость.</p>
           </div>
-          <div class="diag-price"><b>1&nbsp;000&nbsp;₽</b><small>засчитывается в ремонт</small></div>
+          
         </div>
         <div class="plist">
-          <div class="prow"><span>Пылесос Dyson — замена аккумулятора</span><b>от 4&nbsp;500&nbsp;₽</b></div>
-          <div class="prow"><span>Робот-пылесос — ремонт LiDAR-модуля</span><b>от 3&nbsp;500&nbsp;₽</b></div>
+          <div class="prow"><span>Вертикальный пылесос — замена аккумулятора</span><b>от 4&nbsp;500&nbsp;₽</b></div>
+          <div class="prow"><span>Робот-пылесос — замена LiDAR-модуля</span><b>после проверки техники</b></div>
           <div class="prow"><span>Кофемашина De'Longhi — замена помпы</span><b>от 2&nbsp;000&nbsp;₽</b></div>
-          <div class="prow"><span>Телевизоры 55″+ и электросамокаты<small>цена зависит от модели и узла</small></span><b>после диагностики</b></div>
+          <div class="prow"><span>Телевизоры 55″+ и электросамокаты<small>цена зависит от модели и узла</small></span><b>после проверки техники</b></div>
         </div>
         <p class="price-note">«От» — нижняя граница типовой работы без стоимости запчасти, если она не указана в описании. Итоговая смета фиксируется до начала работ. Цены не являются публичной офертой (ст.&nbsp;437&nbsp;ГК&nbsp;РФ).</p>
       </div>
       <aside class="pnote rv" style="--i:1">
         <h3>Почему мы не обещаем «за 1 час»</h3>
-        <p>Скорость ремонта зависит от поломки и наличия запчасти, а не от обещаний на сайте. После диагностики мы называем точный срок — и держим его.</p>
+        <p>Скорость ремонта зависит от поломки и наличия запчасти, а не от обещаний на сайте. После проверки техники мы называем точный срок — и держим его.</p>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg>Смета согласуется до начала работ</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Не делаем «допработы» без вашего согласия</li>
@@ -728,7 +736,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <p>Прозрачный процесс: вы всегда знаете, что происходит с техникой, сколько это стоит и когда будет готово.</p>
     </div>
     <ol class="steps rv">
-      <div class="rail" aria-hidden="true"><i></i></div>
+      
       <li class="step">
         <span class="step-num">1</span>
         <h3>Заявка</h3>
@@ -737,9 +745,9 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       </li>
       <li class="step">
         <span class="step-num">2</span>
-        <h3>Диагностика</h3>
-        <p>Разбираем, замеряем, находим причину. Диагностика — 1&nbsp;000&nbsp;₽, которые засчитываются в ремонт.</p>
-        <span class="when">1&nbsp;000&nbsp;₽ → в ремонт</span>
+        <h3>Проверка техники</h3>
+        <p>Проводим замеры, находим неисправный узел и определяем необходимые работы.</p>
+        <span class="when">определяем причину</span>
       </li>
       <li class="step">
         <span class="step-num">3</span>
@@ -780,7 +788,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <article class="adv rv" style="--i:1">
         <svg class="ic"><use href="#i-bolt"/></svg>
         <h3>Специализация на премиуме</h3>
-        <p>Ремонтируем Dyson, Roborock, De'Longhi и другие сложные бренды. Дешёвую безымянную технику не берём.</p>
+        <p>Ремонтируем Dyson, Roborock, De'Longhi и другие сложные бренды. Подбираем решение по модели и неисправности.</p>
       </article>
       <article class="adv rv" style="--i:2">
         <svg class="ic"><use href="#i-cash"/></svg>
@@ -840,7 +848,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </svg>
         <figcaption class="cap">
           <b>Мастерская PROFF.tech — Рязань, ул. Стройкова, 38</b>
-          <span class="badge"><svg class="ic ic-18"><use href="#i-star"/></svg>Диагностика и ремонт в мастерской</span>
+          <span class="badge"><svg class="ic ic-18"><use href="#i-star"/></svg>Ремонт в мастерской</span>
         </figcaption>
       </figure>
     </div>
@@ -857,10 +865,10 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
     <div class="quiz-side rv">
       <span class="kicker">Заявка</span>
       <h2>Расскажите, что сломалось</h2>
-      <p>Оставьте номер — обсудим поломку. Диагностика — 1&nbsp;000&nbsp;₽. Стоимость ремонта согласуем с учётом необходимых запчастей до начала работ.</p>
+      <p>Оставьте номер — обсудим поломку. Стоимость ремонта согласуем с учётом необходимых запчастей до начала работ.</p>
       <ul class="checks">
         <li><svg class="ic"><use href="#i-check"/></svg>Смета согласуется до начала работ</li>
-        <li><svg class="ic"><use href="#i-check"/></svg>Диагностика 1&nbsp;000&nbsp;₽ засчитывается в ремонт</li>
+        <li><svg class="ic"><use href="#i-check"/></svg>Сначала определяем неисправность</li>
         <li><svg class="ic"><use href="#i-check"/></svg>Оплата после проверки, гарантия в документах</li>
       </ul>
       <p class="quiz-call">Удобнее по телефону? Позвоните сами:<br>
@@ -874,11 +882,11 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         <fieldset class="qstep on" data-step="1">
           <legend>Какую технику ремонтируем?</legend>
           <div class="qopts">
-            <label class="qopt"><input type="radio" name="device" value="Пылесос Dyson"><span>Пылесос Dyson</span></label>
+            <label class="qopt"><input type="radio" name="device" value="Вертикальный пылесос"><span>Вертикальный пылесос</span></label>
             <label class="qopt"><input type="radio" name="device" value="Робот-пылесос"><span>Робот-пылесос</span></label>
             <label class="qopt"><input type="radio" name="device" value="Кофемашина"><span>Кофемашина</span></label>
             <label class="qopt"><input type="radio" name="device" value="Телевизор 55+"><span>Телевизор 55″+</span></label>
-            <label class="qopt"><input type="radio" name="device" value="Электросамокат"><span>Электросамокат</span></label>
+            <label class="qopt"><input type="radio" name="device" value="Электросамокат"><span>Электросамокат</span></label><label class="qopt"><input type="radio" name="device" value="Электровелосипеды"><span>Электровелосипеды</span></label><label class="qopt"><input type="radio" name="device" value="Мойки высокого давления"><span>Мойки высокого давления</span></label><label class="qopt"><input type="radio" name="device" value="Комбайны и мясорубки"><span>Комбайны и мясорубки</span></label><label class="qopt"><input type="radio" name="device" value="Насосные станции"><span>Насосные станции</span></label><label class="qopt"><input type="radio" name="device" value="Яндекс Станция MAX"><span>Яндекс Станция MAX</span></label><label class="qopt"><input type="radio" name="device" value="Сборка и ремонт батарей"><span>Сборка и ремонт батарей</span></label>
           </div>
           <p class="qerr" id="qErr1" role="alert" hidden>Выберите вариант, чтобы продолжить</p>
         </fieldset>
@@ -923,7 +931,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <div class="okbox" id="qOk" role="status" hidden>
         <svg class="ic"><use href="#i-check"/></svg>
         <h3>Заявка принята</h3>
-        <p id="qOkText">Перезвоним в рабочее время (пн–пт, 9:00–19:00), уточним модель и симптомы. Точную смету и срок согласуем после диагностики.</p>
+        <p id="qOkText">Перезвоним в рабочее время (пн–пт, 9:00–19:00), уточним модель и симптомы. Точную смету и срок согласуем после проверки техники.</p>
       </div>
     </div>
   </div>
@@ -1163,7 +1171,7 @@ function showStep(n){
   cur=n;
   if(n===2){
     var device=picked(1);var value=device?device.value:'';
-    var options=value==='Телевизор 55+'?['Не включается','Нет изображения','Нет звука','Полосы на экране','Выключается','Другое']:value==='Кофемашина'?['Не включается','Не подаёт воду','Шумит','Протекает','Не готовит кофе','Другое']:value==='Электросамокат'?['Не включается','Не держит заряд','Не едет','Проблема с тормозами','Ошибка на дисплее','Другое']:['Не включается','Не держит заряд','Шумит','Не заряжается','Плохо убирает','Другое'];
+    var options=value==='Телевизор 55+'?['Не включается','Нет изображения','Нет звука','Полосы на экране','Выключается','Другое']:value==='Кофемашина'?['Не включается','Не подаёт воду','Шумит','Протекает','Не готовит кофе','Другое']:value==='Электросамокат'?['Не включается','Не держит заряд','Не едет','Проблема с тормозами','Ошибка на дисплее','Другое']:['Не включается','Работает с перебоями','Шумит','Повреждён узел','Работает некорректно','Другое'];
     steps[1].querySelectorAll('.qopt').forEach(function(label,i){var input=label.querySelector('input');if(input.value!==options[i])input.checked=false;input.value=options[i];label.querySelector('span').textContent=options[i];});markPicked();
   }
   steps.forEach(function(s){s.classList.toggle('on',+s.getAttribute('data-step')===n);});
@@ -1203,7 +1211,7 @@ backBtn.addEventListener('click',function(){if(cur>1)showStep(cur-1);});
 /* предвыбор устройства по кнопкам «Узнать цену» в карточках услуг */
 document.querySelectorAll('[data-device]').forEach(function(a){
   a.addEventListener('click',function(){
-    var map={dyson:'Пылесос Dyson',robot:'Робот-пылесос',coffee:'Кофемашина',tv:'Телевизор 55+',scooter:'Электросамокат'};
+    var map={dyson:'Вертикальный пылесос',robot:'Робот-пылесос',coffee:'Кофемашина',tv:'Телевизор 55+',scooter:'Электросамокат',battery:'Сборка и ремонт батарей',station:'Яндекс Станция MAX',pump:'Насосные станции',moulinex:'Комбайны и мясорубки',washer:'Мойки высокого давления',ebike:'Электровелосипеды'};
     var val=map[a.getAttribute('data-device')]||'Другая техника';
     var r=form.querySelector('input[name="device"][value="'+val+'"]');
     if(r){r.checked=true;markPicked();}

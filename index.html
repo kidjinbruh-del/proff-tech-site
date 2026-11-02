@@ -1043,9 +1043,9 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
    НАСТРОЙКИ ИНТЕГРАЦИЙ (заполнить перед запуском рекламы)
    ============================================================ */
 
-// ВСТАВЬТЕ СЮДА ВАШ URL ВЕБХУКА БИТРИКС24
+// Публичный HTTPS URL приёмника заявок, НЕ секретный вебхук Битрикса
 // Используйте публичный прокси без секретов; токен Битрикс хранится на сервере.
-// Контракт: form-urlencoded; ответ JSON {ok:true} или {result:ID}.
+// Контракт: JSON; успех только {ok:true,id:положительный_ID_лида}.
 var BITRIX_WEBHOOK_URL = "";
 
 var METRIKA_ID = 0; /* TODO: номер счётчика Яндекс.Метрики */
@@ -1058,16 +1058,28 @@ if(METRIKA_ID){
   window.ym(METRIKA_ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true});
 }
 
-/* ---------- UTM-метки (живут в sessionStorage) ---------- */
+/* ---------- Рекламный источник текущей сессии ---------- */
 var UTM=(function(){
-  var q=new URLSearchParams(location.search),o={},ks=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid','gclid'];
-  ks.forEach(function(k){var v=q.get(k);if(v)o[k]=v;});
+  var q=new URLSearchParams(location.search),o={},ks=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid'];
+  ks.forEach(function(k){var v=q.get(k);if(v)o[k]=v.slice(0,512);});
   try{
     if(Object.keys(o).length)sessionStorage.setItem('proff_utm',JSON.stringify(o));
-    else o=JSON.parse(sessionStorage.getItem('proff_utm')||"{}");
+    else{
+      var saved=JSON.parse(sessionStorage.getItem('proff_utm')||'{}');
+      if(saved&&typeof saved==='object')ks.forEach(function(k){if(typeof saved[k]==='string')o[k]=saved[k].slice(0,512);});
+    }
   }catch(e){}
   return o;
 })();
+function metrikaClientId(){
+  return new Promise(function(resolve){
+    var done=false,timer;
+    function finish(v){if(done)return;done=true;clearTimeout(timer);resolve(/^\d{1,64}$/.test(String(v||''))?String(v):'');}
+    timer=setTimeout(function(){finish('');},800);
+    try{if(METRIKA_ID&&window.ym)window.ym(METRIKA_ID,'getClientID',finish);else finish('');}catch(e){finish('');}
+  });
+}
+function publicPage(url){try{var u=new URL(url);return u.origin+u.pathname;}catch(e){return '';}}
 var T0=Date.now();
 document.addEventListener('click',function(e){
   var t=e.target;
@@ -1362,51 +1374,42 @@ consent.addEventListener('change',function(){
 
 /* ---------- отправка ---------- */
 function sendLead(){
-  var dev=picked(1),sym=picked(2);
-  var name=form.elements.name.value.trim();
-  var phone=normalizePhone(form.elements.phone.value);
-  var TITLE='Заявка с сайта — '+(dev?dev.value:'техника');
-  var lines=['Устройство: '+(dev?dev.value:'—'),'Симптом: '+(sym?sym.value:'—')];
-  if(name)lines.push('Имя: '+name);
-  lines.push('Страница: '+location.href);
-  if(document.referrer)lines.push('Откуда пришёл: '+document.referrer);
-  var uk=Object.keys(UTM);
-  if(uk.length)lines.push('UTM: '+uk.map(function(k){return k+'='+UTM[k];}).join(', '));
-  lines.push('Согласие на обработку ПД: да, '+new Date().toISOString());
-  lines.push('Время на странице: '+Math.round((Date.now()-T0)/1000)+' с');
-  var COMMENTS=lines.join('\n');
-
-  /* honeypot: бота встречаем тихим «успехом», ничего не отправляя */
-  if(form.elements.company.value){succeed(false);return;}
-
+  if(submitBtn.disabled)return;
+  // Отфильтрованная отправка не является заявкой или конверсией.
+  if(form.elements.company.value)return;
   if(!BITRIX_WEBHOOK_URL){
-    if(window.console)console.warn('PROFF: BITRIX_WEBHOOK_URL не задан — заявка не отправлена (демо-режим). Вставьте URL вебхука в index.html.');
     sendErr.hidden=false;
     sendErr.innerHTML='Онлайн-заявки пока недоступны. Позвоните: <a href="tel:+74912511441">+7 (4912) 511-441</a>';
     return;
   }
-  submitBtn.disabled=true;
-  sendErr.hidden=true;
-  var body=new URLSearchParams();
-  body.append('fields[TITLE]',TITLE);
-  if(name)body.append('fields[NAME]',name);
-  body.append('fields[PHONE][0][VALUE]',phone);
-  body.append('fields[PHONE][0][VALUE_TYPE]','WORK');
-  body.append('fields[COMMENTS]',COMMENTS);
-  body.append('fields[SOURCE_ID]','WEB');
-  body.append('params[REGISTER_SONET_EVENT]','Y');
-  fetch(BITRIX_WEBHOOK_URL,{
-    method:'POST',
-    headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
-    body:body.toString()
+  try{
+    var endpoint=new URL(BITRIX_WEBHOOK_URL);
+    if(endpoint.protocol!=='https:'||endpoint.username||endpoint.password||/\/rest\/[^/]+\/[^/]+/i.test(endpoint.pathname))throw new Error('Unsafe endpoint');
+  }catch(e){sendErr.hidden=false;return;}
+  submitBtn.disabled=true;sendErr.hidden=true;
+  var controller=new AbortController(),timer=setTimeout(function(){controller.abort();},15000);
+  var dev=picked(1),sym=picked(2);
+  metrikaClientId().then(function(clientId){
+    return fetch(BITRIX_WEBHOOK_URL,{
+      method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,
+      body:JSON.stringify({name:form.elements.name.value.trim(),phone:normalizePhone(phoneInput.value),
+        topic:dev?dev.value:'',symptom:sym?sym.value:'',consent:consent.checked,
+        consent_version:'2026-11-02',ts:new Date().toISOString(),elapsed:Date.now()-T0,
+        page:publicPage(location.href),referrer:publicPage(document.referrer),utm:UTM,client_id:clientId})
+    });
   })
-  .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-  .then(function(data){if(data.error||!(data.result||data.ok===true))throw new Error('Lead not accepted');})
-  .then(succeed)
+  .then(function(r){if(!r.ok)throw new Error('Request failed');return r.json();})
+  .then(function(data){
+    if(data.ok!==true||!Number.isSafeInteger(data.id)||data.id<=0)throw new Error('Lead not confirmed');
+    succeed();
+  })
   .catch(function(){
+    // После сетевого сбоя результат может быть неизвестен: автоматически не повторяем.
     sendErr.hidden=false;
-    submitBtn.disabled=false;
-  });
+    sendErr.innerHTML='Не удалось подтвердить приём заявки. Если вы уже отправляли её, уточните по телефону: <a href="tel:+74912511441">+7 (4912) 511-441</a>';
+    goal('lead_error');
+  })
+  .finally(function(){clearTimeout(timer);submitBtn.disabled=false;});
 }
 function succeed(track){
   form.hidden=true;

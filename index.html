@@ -254,9 +254,9 @@ nav.menu a:hover{color:var(--text)}
 .adv h3{font-size:1.12rem;font-weight:600;letter-spacing:-.01em}
 .adv p{color:var(--soft);font-size:.94rem;max-width:48ch}
 .adv b{color:var(--text)}
-.adv-photo{grid-column:1/-1;position:relative;min-height:300px;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#0F1930}
-.adv-photo>svg{position:absolute;inset:0;width:100%;height:100%}
-.adv-photo .cap{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 26px;background:linear-gradient(180deg,transparent,rgba(6,10,20,.82));color:#fff}
+.adv-photo{grid-column:1/-1;position:relative;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#0F1930}
+.adv-photo>img{display:block;width:100%;height:auto;filter:brightness(1.08) contrast(1.04)}
+.adv-photo .cap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 26px;background:#0F1930;color:#fff}
 .adv-photo .cap b{font-size:1.04rem;font-weight:600;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .adv-photo .cap .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(46,91,255,.28);border:1px solid rgba(140,163,255,.4);font-size:.84rem;font-weight:600;white-space:nowrap}
 .b2b{margin-top:26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;background:var(--surface);border:1px dashed var(--muted);border-radius:16px;padding:22px 26px}
@@ -806,51 +806,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         <p>Сначала вы проверяете технику в работе <b>и только потом платите</b>. Гарантия на работы и запчасти фиксируется в документах.</p>
       </article>
       <figure class="adv-photo rv" style="--i:4">
-        <!-- TODO: заменить SVG-сцену на реальное фото мастерской (например, images/workshop.jpg, 1600×640, тёмная тонировка) -->
-        <svg viewBox="0 0 1160 380" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="sc-ws" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C1526"/><stop offset="1" stop-color="#1B2B4D"/></linearGradient>
-            <radialGradient id="gl-ws" cx=".72" cy=".28" r=".65"><stop offset="0" stop-color="#2E5BFF" stop-opacity=".3"/><stop offset="1" stop-color="#2E5BFF" stop-opacity="0"/></radialGradient>
-            <pattern id="peg" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="2" fill="#33456E"/></pattern>
-          </defs>
-          <rect width="1160" height="380" fill="url(#sc-ws)"/>
-          <rect width="1160" height="380" fill="url(#gl-ws)"/>
-          <rect x="60" y="36" width="480" height="170" rx="10" fill="none" stroke="#33456E" stroke-width="3"/>
-          <rect x="60" y="36" width="480" height="170" rx="10" fill="url(#peg)"/>
-          <rect x="760" y="60" width="330" height="150" rx="10" fill="none" stroke="#33456E" stroke-width="4"/>
-          <rect x="790" y="90" width="270" height="90" rx="4" fill="#2E5BFF" opacity=".22"/>
-          <rect x="830" y="222" width="26" height="26" rx="3" fill="none" stroke="#33456E" stroke-width="4"/>
-          <rect x="1046" y="222" width="26" height="26" rx="3" fill="none" stroke="#33456E" stroke-width="4"/>
-          <g fill="none" stroke="#D8E3F6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M120 96v70M112 96l8-18 8 18"/>
-            <path d="M186 100l-12 66M176 92l16 8-6-16M198 92l-16 8 4-17"/>
-            <path d="M256 96l-16 20 16 20M286 96l16 20-16 20"/>
-            <rect x="330" y="98" width="46" height="20" rx="6"/>
-            <path d="M352 118v44"/>
-            <circle cx="440" cy="108" r="26"/>
-            <path d="M458 126l24 40"/>
-            <path d="M700 206V96l60-40"/>
-            <path d="M736 52h52l-14 22h-24Z"/>
-          </g>
-          <rect x="80" y="250" width="620" height="20" rx="6" fill="#1E3054" stroke="#33456E" stroke-width="3"/>
-          <path d="M120 270v84M660 270v84" stroke="#33456E" stroke-width="8" stroke-linecap="round"/>
-          <g fill="none" stroke="#D8E3F6" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="150" y="196" width="110" height="54" rx="8"/>
-            <rect x="166" y="208" width="52" height="22" rx="3" stroke="#6E96FF"/>
-            <path d="M196 242l-8 8M204 242l8 8"/>
-            <rect x="310" y="188" width="140" height="62" rx="8"/>
-            <path d="M322 226c10-16 16 12 26-4s14 14 24-2 16 10 26-6 14 12 24-4 12 10 18 0" stroke="#6E96FF"/>
-            <rect x="500" y="204" width="120" height="46" rx="8"/>
-            <path d="M516 216h30M516 230h56M516 240h20" stroke-width="3.4"/>
-          </g>
-          <g fill="none" stroke="#D8E3F6" stroke-width="4.5">
-            <rect x="1090" y="236" width="62" height="62" rx="14"/>
-            <circle cx="1121" cy="267" r="11" stroke="#6E96FF"/>
-          </g>
-          <g stroke="#6E96FF" stroke-width="3.4" stroke-linecap="round" opacity=".8">
-            <path d="M690 96c-8-10 8-16 0-28M660 90c-6-8 6-13 0-22" fill="none"/>
-          </g>
-        </svg>
+        <img src="images/workshop-entrance.jpg" width="1273" height="475" alt="Вход в мастерскую ПРОФТЕХ с фирменной вывеской" loading="lazy" decoding="async">
         <figcaption class="cap">
           <b>Мастерская PROFF.tech — Рязань, ул. Стройкова, 38</b>
           <span class="badge"><svg class="ic ic-18"><use href="#i-star"/></svg>Ремонт в мастерской</span>

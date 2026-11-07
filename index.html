@@ -484,7 +484,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
 /* QA: timeline alignment and consistent symbol metrics */
 .ic{stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}.steps{padding-top:0;gap:26px}.steps::before{content:'';position:absolute;top:24px;left:24px;right:calc((100% - 104px)/5 - 24px);height:2px;background:var(--accent);pointer-events:none}.step-num{z-index:2}.step{padding-top:66px}.hero-facts li{align-items:flex-start}.hero-facts .ic{margin-top:2px}.more-services>h3{margin-top:28px}.service-detail summary::marker{color:var(--accent-text)}
 @media(max-width:1000px){.steps::before{display:none}.step{padding-top:0;padding-left:66px}.step-num{top:0;left:0}}
-.brief-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}.brief-catalog .svc{grid-column:auto}.brief-catalog .svc-body{height:100%}.brief-catalog .svc-foot{margin-top:auto}.service-format{font-weight:700;color:var(--accent-text);letter-spacing:.04em}.device-shortcuts>a{min-width:0}.device-shortcuts>a span:first-child{overflow-wrap:anywhere}@media(max-width:640px){.brief-catalog{grid-template-columns:minmax(0,1fr)}.device-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.brief-catalog{grid-template-columns:repeat(2,minmax(0,1fr))}.brief-catalog .svc{grid-column:auto}.brief-catalog .svc-foot{margin-top:auto}.service-format{font-weight:700;color:var(--accent-text);letter-spacing:.04em}.device-shortcuts>a{min-width:0}.device-shortcuts>a span:first-child{overflow-wrap:anywhere}@media(max-width:640px){.brief-catalog{grid-template-columns:minmax(0,1fr)}.device-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 
 .brief-catalog .svc{background:linear-gradient(155deg,var(--surface),var(--bg));border-radius:24px}
@@ -497,6 +497,27 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
 .service-exclusions{margin-top:16px}
 @media(min-width:881px){.device-shortcuts{grid-template-columns:repeat(6,minmax(0,1fr))}}
 @media(max-width:880px){.device-shortcuts>a:last-child{grid-column:auto}}
+
+.catalog-photo {
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  place-items: center;
+  height: clamp(184px, 25vw, 260px);
+  padding: 22px 28px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+.catalog-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+.brief-catalog .svc-body { flex: 1; min-width: 0; }
+@media (max-width: 640px) {
+  .catalog-photo { height: 210px; padding: 18px 22px; }
+}
 </style>
 </head>
 <body>
@@ -602,6 +623,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
 <!-- ================= УСЛУГИ ================= -->
 <section id="services"><div class="wrap"><div class="sec-head rv"><span class="kicker">Услуги</span><h2>Что ремонтируем</h2><p>Найдите свою категорию и бренд. Модель, формат обслуживания и время визита уточним при обращении.</p></div><div class="svc-grid brief-catalog">
       <article class="svc rv">
+        <div class="catalog-photo"><img src="images/catalog-coffee.jpg" alt="Кофемашина De’Longhi Magnifica S" loading="lazy" decoding="async"></div>
         <div class="svc-body">
           <p class="service-format"><span aria-hidden="true">01 / </span>В сервисном центре</p>
           <h3>Кофемашины</h3>
@@ -611,6 +633,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </div>
       </article>
       <article class="svc rv">
+        <div class="catalog-photo"><img src="images/catalog-laundry.jpg" alt="Стиральная машина Miele W1" loading="lazy" decoding="async"></div>
         <div class="svc-body">
           <p class="service-format"><span aria-hidden="true">02 / </span>Выезд мастера в день заявки</p>
           <h3>Стиральные машины</h3>
@@ -620,6 +643,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </div>
       </article>
       <article class="svc rv">
+        <div class="catalog-photo"><img src="images/catalog-dishwasher.jpg" alt="Посудомоечная машина Bosch" loading="lazy" decoding="async"></div>
         <div class="svc-body">
           <p class="service-format"><span aria-hidden="true">03 / </span>Выезд мастера в день заявки</p>
           <h3>Посудомоечные машины</h3>
@@ -629,6 +653,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </div>
       </article>
       <article class="svc rv">
+        <div class="catalog-photo"><img src="images/catalog-dryer.jpg" alt="Сушильная машина Bosch" loading="lazy" decoding="async"></div>
         <div class="svc-body">
           <p class="service-format"><span aria-hidden="true">04 / </span>Выезд мастера в день заявки</p>
           <h3>Сушильные машины</h3>
@@ -638,6 +663,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </div>
       </article>
       <article class="svc rv">
+        <div class="catalog-photo"><img src="images/catalog-oven.jpg" alt="Встраиваемый электрический духовой шкаф Bosch" loading="lazy" decoding="async"></div>
         <div class="svc-body">
           <p class="service-format"><span aria-hidden="true">05 / </span>Выезд мастера в день заявки</p>
           <h3>Духовые шкафы</h3>
@@ -647,6 +673,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </div>
       </article>
       <article class="svc rv">
+        <div class="catalog-photo"><img src="images/catalog-cosmetic.jpg" alt="Массажное кресло Osaki" loading="lazy" decoding="async"></div>
         <div class="svc-body">
           <p class="service-format"><span aria-hidden="true">06 / </span>Ремонт и ТО</p>
           <h3>Косметологическое оборудование</h3>

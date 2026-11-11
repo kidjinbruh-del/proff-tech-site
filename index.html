@@ -11,6 +11,7 @@
 <meta name="geo.region" content="RU-RYA">
 <meta name="geo.placename" content="Рязань">
 <meta name="ICBM" content="54.61664, 39.71712">
+<meta name="yandex-verification" content="cde9e168b35b6332">
 <meta name="theme-color" content="#0A101E" id="metaTheme">
 <meta property="og:title" content="Ремонт премиальной техники в Рязани — PROFF.tech">
 <meta property="og:description" content="Ремонт кофемашин, стиральных, посудомоечных и сушильных машин, духовых шкафов и косметологического оборудования в Рязани. Согласуем смету до работ.">
@@ -19,9 +20,9 @@
 <meta property="og:locale" content="ru_RU">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232E5BFF'/%3E%3Cpath d='M18 4 7 18h7l-1 10 11-14h-7l1-10Z' fill='%23fff'/%3E%3C/svg%3E">
 <script>document.documentElement.className='js'</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts/inter.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,7 +30,7 @@
   "name": "PROFF.tech — сервисный центр ООО «ПРОФТЕХ»",
   "description": "Ремонт кофемашин, стиральных, посудомоечных и сушильных машин, духовых шкафов и косметологического оборудования в Рязани. Согласуем смету до работ.",
   "url": "https://proff-tech.pro/",
-  "telephone": "+7-4912-511-441",
+  "telephone": "+7-977-090-50-06",
   "email": "proff.tech@yandex.ru",
   "priceRange": "от 1000 ₽",
   "address": {
@@ -110,7 +111,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 img,svg{max-width:100%}
 body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;transition:background .25s ease,color .25s ease}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
@@ -319,6 +320,8 @@ footer{border-top:1px solid var(--line);padding:60px 0 90px;background:var(--bg)
 .f-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.83rem}
 .f-bottom a{color:var(--muted);text-decoration:none}
 .f-bottom a:hover{color:var(--soft)}
+.f-bottom .cookie-settings{font:inherit;color:var(--muted);background:none;border:0;padding:0;cursor:pointer}
+.f-bottom .cookie-settings:hover{color:var(--soft);text-decoration:underline}
 
 /* ================= МОБИЛЬНАЯ ПАНЕЛЬ ================= */
 .mbar{display:none}
@@ -342,7 +345,8 @@ footer{border-top:1px solid var(--line);padding:60px 0 90px;background:var(--bg)
 @media (max-width:880px){
   .burger{display:flex}
   nav.menu{display:none}
-  .site{position:sticky}
+  /* на телефонах убираем blur: он вызывает подтормаживание и дрожание при скролле */
+  .site{position:sticky;background:var(--bg);backdrop-filter:none;-webkit-backdrop-filter:none}
   .site .wrap{gap:10px}
   .site>.wrap>.btn{display:none}
   .site.open nav.menu{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:2px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 44px rgba(3,8,20,.35);padding:10px 20px 20px;max-height:calc(100dvh - 64px);overflow:auto}
@@ -363,9 +367,10 @@ footer{border-top:1px solid var(--line);padding:60px 0 90px;background:var(--bg)
   .diag-price{margin-left:52px}
   footer{padding-bottom:150px}
   .f-grid{grid-template-columns:1fr;gap:28px}
-  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
-    background:var(--header);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-  .mbar .btn{flex:1;min-height:50px}
+  .mbar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+    background:var(--surface);border-top:1px solid var(--line)}
+  .mbar .btn{flex:1;min-height:50px;transform:none}
+  .mbar .btn:hover,.mbar .btn:active{transform:none}
   .mbar .btn-ghost{flex:0 0 auto;padding:0 18px}
 }
 @media (max-width:600px){
@@ -467,6 +472,16 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
 @media (max-width: 640px) {
   .catalog-photo { height: 210px; padding: 18px 22px; }
 }
+/* ================= COOKIE / АНАЛИТИКА ================= */
+.cookie-bar{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:760px;margin:0 auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:var(--surface);box-shadow:var(--shadow)}
+.cookie-bar[hidden]{display:none}
+.cookie-bar p{margin:0;flex:1 1 320px;font-size:.86rem;line-height:1.5;color:var(--soft)}
+.cookie-bar a{color:var(--accent-text);text-decoration:underline}
+.cookie-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cookie-actions button{font:inherit;font-size:.82rem;font-weight:600;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--line);cursor:pointer}
+.cookie-accept{background:var(--accent);color:#fff;border-color:var(--accent)}
+.cookie-decline{background:transparent;color:var(--soft)}
+@media (max-width:880px){.cookie-bar{bottom:calc(84px + env(safe-area-inset-bottom))}}
 </style>
 </head>
 <body>
@@ -506,16 +521,16 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       <a href="#contacts">Адрес и контакты</a>
       <a href="#steps">Как проходит ремонт</a>
       <div class="menu-cta">
-        <a class="btn btn-primary" href="tel:+74912511441" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+        <a class="btn btn-primary" href="tel:+79770905006" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
       </div>
     </nav>
-    <a class="tel" href="tel:+74912511441">
-      <svg class="ic ic-18"><use href="#i-phone"/></svg>+7&#8202;(4912)&nbsp;511-441</a>
+    <a class="tel" href="tel:+79770905006">
+      <svg class="ic ic-18"><use href="#i-phone"/></svg>+7&#8202;(977)&nbsp;090-50-06</a>
     <button class="theme-btn" id="themeToggle" type="button" aria-label="Переключить тему">
       <svg class="ic ic-18"><use href="#i-auto" id="themeIcon"/></svg>
     </button>
-    <a class="btn btn-primary" href="tel:+74912511441" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
-    <a class="tel-m" href="tel:+74912511441" aria-label="Позвонить">
+    <a class="btn btn-primary" href="tel:+79770905006" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+    <a class="tel-m" href="tel:+79770905006" aria-label="Позвонить">
       <svg class="ic ic-18"><use href="#i-phone"/></svg>
     </a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Меню">
@@ -539,7 +554,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         <li><svg class="ic"><use href="#i-shield"/></svg>Гарантия в документах</li>
       </ul>
       <div class="cta-row">
-        <a class="btn btn-primary" href="tel:+74912511441" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+        <a class="btn btn-primary" href="tel:+79770905006" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
         <div class="cta-note">
           <small>пн–пт 9:00–19:00 · ответим на вопросы по цене и срокам</small>
         </div>
@@ -576,7 +591,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Кофемашины</h3>
           <p class="service-description">Ремонт, декальцинация и ТО в сервисном центре. Забираем и возвращаем технику по согласованию.</p>
           <ul class="brand-list" aria-label="Обслуживаемые бренды"><li>Miele</li><li>Melitta</li><li>Siemens</li><li>Krups</li><li>WMF</li></ul>
-          <div class="svc-foot"><a class="svc-link" href="tel:+74912511441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
+          <div class="svc-foot"><a class="svc-link" href="tel:+79770905006"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
         </div>
       </article>
       <article class="svc rv">
@@ -586,7 +601,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Стиральные машины</h3>
           <p class="service-description">Ремонт стиральных машин. Уточним модель, неисправность и время визита.</p>
           <ul class="brand-list" aria-label="Обслуживаемые бренды"><li>Miele</li><li>Asko</li><li>Neff</li><li>Smeg</li><li>Primus</li></ul>
-          <div class="svc-foot"><a class="svc-link" href="tel:+74912511441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
+          <div class="svc-foot"><a class="svc-link" href="tel:+79770905006"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
         </div>
       </article>
       <article class="svc rv">
@@ -596,7 +611,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Посудомоечные машины</h3>
           <p class="service-description">Ремонт встраиваемых и отдельностоящих моделей. При обращении сообщите модель и код ошибки, если он есть.</p>
           <ul class="brand-list" aria-label="Обслуживаемые бренды"><li>Miele</li><li>Asko</li><li>Neff</li><li>Smeg</li><li>Bosch</li><li>De’Longhi Premium</li></ul>
-          <div class="svc-foot"><a class="svc-link" href="tel:+74912511441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
+          <div class="svc-foot"><a class="svc-link" href="tel:+79770905006"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
         </div>
       </article>
       <article class="svc rv">
@@ -606,7 +621,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Сушильные машины</h3>
           <p class="service-description">Ремонт сушильных машин. Проверяем причину слабой сушки, ошибок программы и остановки барабана.</p>
           <ul class="brand-list" aria-label="Обслуживаемые бренды"><li>Neff</li><li>Smeg</li><li>Bosch</li><li>LG</li><li>Samsung</li></ul>
-          <div class="svc-foot"><a class="svc-link" href="tel:+74912511441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
+          <div class="svc-foot"><a class="svc-link" href="tel:+79770905006"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
         </div>
       </article>
       <article class="svc rv">
@@ -616,7 +631,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Духовые шкафы</h3>
           <p class="service-description">Ремонт электрических духовых шкафов. Уточним модель и доступ к встроенной технике.</p>
           <ul class="brand-list" aria-label="Обслуживаемые бренды"><li>Smeg</li><li>Bosch</li><li>Neff</li><li>Kuppersberg</li><li>Miele</li><li>Asko</li><li>Gaggenau</li></ul>
-          <div class="svc-foot"><a class="svc-link" href="tel:+74912511441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
+          <div class="svc-foot"><a class="svc-link" href="tel:+79770905006"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
         </div>
       </article>
       <article class="svc rv">
@@ -626,16 +641,16 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <h3>Косметологическое оборудование</h3>
           <p class="service-description">Ремонт и ТО аппаратов лазерной эпиляции и криолиполиза, массажных столов и кресел. Приём немедицинского оборудования уточняем по модели.</p>
 
-          <div class="svc-foot"><a class="svc-link" href="tel:+74912511441"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
+          <div class="svc-foot"><a class="svc-link" href="tel:+79770905006"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить<span aria-hidden="true">→</span></a></div>
         </div>
       </article>
     </div>
     <p class="service-visit-note">Выезд в день обращения возможен в рабочее время при наличии свободного мастера.</p>
   </div>
 <div class="more-services"><h3>Пылесосы и аккумуляторные сборки</h3><p>Отдельные направления: приём и состав работ уточняем по модели.</p>
-<details class="service-detail"><summary>Вертикальные и беспроводные пылесосы</summary><div><p>Dyson и другие бренды — по модели. Аккумуляторы, турбощётки, разъёмы; неисправные моторные и электронные модули заменяем.</p><a class="svc-link" href="tel:+74912511441">Уточнить ремонт →</a></div></details>
-<details class="service-detail"><summary>Роботы-пылесосы</summary><div><p>Проблемы с уборкой, зарядкой и навигацией. Неисправные LiDAR-модули, датчики и другие модули заменяем.</p><a class="svc-link" href="tel:+74912511441">Уточнить ремонт →</a></div></details>
-<details class="service-detail"><summary>Сборка и ремонт батарей</summary><div><p>Аккумуляторные сборки на ячейках 18650 и 21700. Конфигурацию, совместимость и состав работ согласуем после проверки.</p><a class="svc-link" href="tel:+74912511441">Позвонить<span aria-hidden="true">→</span></a></div></details>
+<details class="service-detail"><summary>Вертикальные и беспроводные пылесосы</summary><div><p>Dyson и другие бренды — по модели. Аккумуляторы, турбощётки, разъёмы; неисправные моторные и электронные модули заменяем.</p><a class="svc-link" href="tel:+79770905006">Уточнить ремонт →</a></div></details>
+<details class="service-detail"><summary>Роботы-пылесосы</summary><div><p>Проблемы с уборкой, зарядкой и навигацией. Неисправные LiDAR-модули, датчики и другие модули заменяем.</p><a class="svc-link" href="tel:+79770905006">Уточнить ремонт →</a></div></details>
+<details class="service-detail"><summary>Сборка и ремонт батарей</summary><div><p>Аккумуляторные сборки на ячейках 18650 и 21700. Конфигурацию, совместимость и состав работ согласуем после проверки.</p><a class="svc-link" href="tel:+79770905006">Позвонить<span aria-hidden="true">→</span></a></div></details>
   <details class="service-detail service-exclusions">
     <summary>Ограничения по приёму техники</summary>
     <div>
@@ -673,7 +688,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
           <li><svg class="ic"><use href="#i-check"/></svg>Не делаем «допработы» без вашего согласия</li>
           <li><svg class="ic"><use href="#i-check"/></svg>Оплата — после того, как вы проверили технику</li>
         </ul>
-        <a class="btn btn-primary" href="tel:+74912511441" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+        <a class="btn btn-primary" href="tel:+79770905006" data-cta><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
       </aside>
     </div>
   </div>
@@ -782,10 +797,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         <ul class="ct-list">
           <li><svg class="ic"><use href="#i-pin"/></svg><span><b>390026, Рязань, ул. Стройкова, 38,</b><br>помещение Н35, 1 этаж</span></li>
           <li><svg class="ic"><use href="#i-clock"/></svg><span>Пн–пт, 9:00–19:00 · Сб–вс — выходные</span></li>
-          <li><svg class="ic"><use href="#i-phone"/></svg><span>
-            <a href="tel:+74912511441">+7 (4912) 511-441</a><br>
-            <a href="tel:+79309995257">+7 (930) 999-52-57</a><br>
-            <a href="tel:+79209611441">+7 (920) 961-14-41</a></span></li>
+          <li><svg class="ic"><use href="#i-phone"/></svg><span><a href="tel:+79770905006">+7 (977) 090-50-06</a></span></li>
           <li><svg class="ic"><use href="#i-mail"/></svg><span><a href="mailto:proff.tech@yandex.ru">proff.tech@yandex.ru</a></span></li>
         </ul>
         <div class="msgr-row">
@@ -794,7 +806,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
         </div>
         <div class="ct-actions">
           <a class="btn btn-primary" href="https://yandex.ru/maps/?rtext=~39.71712%2C54.61664&amp;rtt=auto" target="_blank" rel="noopener" data-route>Построить маршрут</a>
-          <a class="btn btn-ghost" href="tel:+74912511441"><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+          <a class="btn btn-ghost" href="tel:+79770905006"><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
         </div>
       </div>
       <div class="map-wrap rv" style="--i:1">
@@ -837,8 +849,7 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
       </div>
       <div class="f-col">
         <h3>Контакты</h3>
-        <a href="tel:+74912511441"><svg class="ic"><use href="#i-phone"/></svg>+7 (4912) 511-441</a>
-        <a href="tel:+79309995257"><svg class="ic"><use href="#i-phone"/></svg>+7 (930) 999-52-57</a>
+        <a href="tel:+79770905006"><svg class="ic"><use href="#i-phone"/></svg>+7 (977) 090-50-06</a>
         <a href="mailto:proff.tech@yandex.ru"><svg class="ic"><use href="#i-mail"/></svg>proff.tech@yandex.ru</a>
         <span><svg class="ic"><use href="#i-clock"/></svg>Пн–пт, 9:00–19:00 · Сб–вс — выходные</span>
         <span><svg class="ic"><use href="#i-pin"/></svg>ул. Стройкова, 38, пом. Н35</span>
@@ -854,14 +865,23 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
     </div>
     <div class="f-bottom">
       <span>© <span id="y">2026</span> ООО «ПРОФТЕХ»</span>
-      <span><a href="privacy.html">Политика конфиденциальности</a>&ensp;·&ensp;<a href="offer.html">Публичная оферта</a></span>
+      <span><a href="privacy.html">Политика конфиденциальности</a>&ensp;·&ensp;<a href="offer.html">Публичная оферта</a>&ensp;·&ensp;<button type="button" class="cookie-settings" id="cookieSettings">Настройки cookie</button></span>
     </div>
   </div>
 </footer>
 
 <!-- ================= МОБИЛЬНАЯ ПАНЕЛЬ ================= -->
 <div class="mbar">
-  <a class="btn btn-primary" href="tel:+74912511441"><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+  <a class="btn btn-primary" href="tel:+79770905006"><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
+</div>
+
+<!-- ================= COOKIE / АНАЛИТИКА ================= -->
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Использование cookie" hidden>
+  <p>Мы используем cookie и Яндекс Метрику, чтобы понимать, как работает сайт, и делать его удобнее. Подробнее — в <a href="privacy.html">Политике обработки персональных данных</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" id="cookieAccept">Принять</button>
+    <button type="button" class="cookie-decline" id="cookieDecline">Только необходимые</button>
+  </div>
 </div>
 
 <script>
@@ -872,11 +892,17 @@ section{padding:72px 0}.kicker{font-size:11px;letter-spacing:.14em;font-weight:7
    НАСТРОЙКИ АНАЛИТИКИ (заполнить перед запуском рекламы)
    ============================================================ */
 
-var METRIKA_ID = 114154875; /* номер счётчика Яндекс.Метрики */
+var METRIKA_ID = 114169454; /* номер счётчика Яндекс.Метрики */
+var CONSENT_KEY = 'proff-cookie-consent';
 
-/* ---------- Метрика и цели ---------- */
-function goal(n){try{if(METRIKA_ID&&window.ym)window.ym(METRIKA_ID,'reachGoal',n);}catch(e){}}
-if(METRIKA_ID){
+/* ---------- Метрика и цели (загружается только после согласия) ---------- */
+window.ym = window.ym || function(){(window.ym.a = window.ym.a || []).push(arguments);};
+window.ym.l = window.ym.l || 1*new Date();
+function consentValue(){try{return localStorage.getItem(CONSENT_KEY);}catch(e){return null;}}
+function goal(n){try{if(METRIKA_ID&&window.ym&&consentValue()==='accepted')window.ym(METRIKA_ID,'reachGoal',n);}catch(e){}}
+function loadMetrika(){
+  if(!METRIKA_ID || window.__ymLoaded) return;
+  window.__ymLoaded = true;
   (function(m,e,t,r,i,k,a){
     m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
@@ -885,6 +911,46 @@ if(METRIKA_ID){
   })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+METRIKA_ID,'ym');
   window.ym(METRIKA_ID,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
 }
+
+/* ---------- Баннер согласия на cookie ---------- */
+var cookieBar=document.getElementById('cookieBar');
+var cookieAccept=document.getElementById('cookieAccept');
+var cookieDecline=document.getElementById('cookieDecline');
+var cookieSettings=document.getElementById('cookieSettings');
+function hideCookieBar(){if(cookieBar)cookieBar.hidden=true;}
+function showCookieBar(){if(cookieBar)cookieBar.hidden=false;}
+function clearMetrikaCookies(){
+  try{
+    var host=location.hostname.replace(/^www\./,'');
+    var names={};
+    document.cookie.split(';').forEach(function(c){
+      var n=c.split('=')[0].trim();
+      if(n && (n.indexOf('_ym')===0 || n==='mdd'))names[n]=1;
+    });
+    Object.keys(names).forEach(function(n){
+      document.cookie=n+'=; Max-Age=0; path=/';
+      document.cookie=n+'=; Max-Age=0; path=/; domain='+host;
+      document.cookie=n+'=; Max-Age=0; path=/; domain=.'+host;
+    });
+    Object.keys(localStorage).forEach(function(k){if(k.indexOf('_ym')===0)localStorage.removeItem(k);});
+  }catch(e){}
+}
+if(consentValue()==='accepted'){loadMetrika();}
+else if(consentValue()!=='declined' && cookieBar){showCookieBar();}
+if(cookieAccept)cookieAccept.addEventListener('click',function(){
+  try{localStorage.setItem(CONSENT_KEY,'accepted');}catch(e){}
+  hideCookieBar();loadMetrika();
+});
+if(cookieDecline)cookieDecline.addEventListener('click',function(){
+  try{localStorage.setItem(CONSENT_KEY,'declined');}catch(e){}
+  hideCookieBar();
+  if(window.__ymLoaded){clearMetrikaCookies();location.reload();}
+});
+if(cookieSettings)cookieSettings.addEventListener('click',function(){
+  try{localStorage.removeItem(CONSENT_KEY);}catch(e){}
+  showCookieBar();
+  if(cookieAccept)cookieAccept.focus();
+});
 
 document.addEventListener('click',function(e){
   var t=e.target;
@@ -993,7 +1059,5 @@ if(y)y.textContent=new Date().getFullYear();
 })();
 </script>
 
-<!-- Yandex.Metrika noscript -->
-<noscript><div><img src="https://mc.yandex.ru/watch/114154875" style="position:absolute;left:-9999px" alt=""></div></noscript>
 </body>
 </html>

@@ -1034,7 +1034,7 @@ body.service-focus-open{overflow:hidden}
       <a class="btn btn-primary handoff-primary" href="#services">Выбрать технику</a>
       <div class="handoff-meta"><span>Приём в сервисе или выезд — по модели</span><span>Доставка техники — по согласованию</span></div>
     </div>
-    <div class="handoff-mascot" role="img" aria-label="Иллюстрация мастера PROFF.tech с согласованной сметой"><img src="assets/handoff/benefits.png" alt="" fetchpriority="high"></div>
+    <div class="handoff-mascot" role="img" aria-label="Премиальная бытовая техника: вертикальный пылесос, робот-пылесос и кофемашина"><img src="images/appliances-hero.jpg" alt="" fetchpriority="high"></div>
     <ul class="handoff-assurances" aria-label="Условия ремонта">
       <li><span class="handoff-check">01</span><span><b>Смета до начала работ</b><small>Согласуем стоимость и срок</small></span></li>
       <li><span class="handoff-check">02</span><span><b>Обслуживание по модели</b><small>В сервисе или на выезде</small></span></li>
@@ -1840,7 +1840,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <style id="physical-review-fixes">
 /* Alignment, legibility and consistent blue actions, based on the reviewed handoff mockup. */
 .handoff-mascot{border-radius:26px;background:#03132e}
-.handoff-mascot img{border-radius:26px}
+.handoff-mascot{aspect-ratio:1.5}
+.handoff-mascot img{inset:0;width:100%;height:100%;max-width:100%;border-radius:26px;object-fit:contain;mix-blend-mode:normal}
 .service-intro-handoff .handoff-magnifier{height:250px;border:1px solid rgba(155,183,220,.2);border-radius:20px;background:#03132e}
 .service-intro-handoff .handoff-magnifier img{width:232%;left:-132%;top:-48%}
 .price-grid,.price-grid>*{min-width:0}
@@ -1872,7 +1873,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 #contacts .mtab:not([aria-selected="true"]){background:linear-gradient(110deg,rgba(34,109,176,.3),rgba(52,126,174,.3))!important;border-color:rgba(155,183,220,.28)!important;color:#dcecff!important}
 :root[data-theme="light"] #contacts .mtab:not([aria-selected="true"]){color:#315f84!important}
 .btn:focus-visible,.svc-link:focus-visible,.service-list-toggle:focus-visible,.mtab:focus-visible,.msgr:focus-visible,.theme-btn:focus-visible,.tel-m:focus-visible{outline:3px solid #8fc6ed;outline-offset:3px}
-@media(max-width:600px){.handoff-mascot{border-radius:20px}.handoff-mascot img{border-radius:20px}.price-note{font-size:13px}}
+@media(max-width:600px){.handoff-mascot{width:min(100%,340px);aspect-ratio:1.5;border-radius:20px}.handoff-mascot img{border-radius:20px}.price-note{font-size:13px}}
 </style>
 </body>
 </html>

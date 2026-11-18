@@ -1025,20 +1025,27 @@ body.service-focus-open{overflow:hidden}
 <main id="top">
 
 <!-- ================= HERO ================= -->
-<section class="hero client-hero">
-  <div class="wrap client-intro">
-    <div class="client-meta"><span>Сервис премиальной техники · Рязань</span><span><svg class="ic" aria-hidden="true"><use href="#i-delivery"/></svg>Есть доставка</span></div>
-    <h1>Ваша техника<br><span>в надёжных руках</span></h1>
-    <p class="client-lead">Ремонт ноутбуков, кофемашин<br class="client-break"> и премиальной бытовой техники.</p>
-    <div class="client-actions"><a class="btn btn-primary" href="tel:+79770900560" data-cta><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Обсудить ремонт</a><a class="client-catalog" href="#services">Выбрать технику <span aria-hidden="true">↗</span></a></div>
-    <p class="client-contact"><a href="tel:+79770900560" aria-label="Позвонить по номеру +7 977 090-05-60">+7 (977) 090-05-60</a> <span>· Пн–пт, 9:00–19:00</span></p>
-    <ul class="client-assurances" aria-label="Условия ремонта"><li><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg><span>Цена и срок<br><b>до начала работ</b></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Личные данные<br><b>конфиденциальны</b></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-delivery"/></svg><span>Доставка техники<br><b>по согласованию</b></span></li></ul>
+<section class="hero client-hero handoff-hero">
+  <div class="wrap handoff-hero-grid">
+    <div class="handoff-hero-copy">
+      <span class="handoff-eyebrow">СЕРВИСНЫЙ ЦЕНТР · РЯЗАНЬ</span>
+      <h1>Ремонт премиальной техники в Рязани</h1>
+      <p class="handoff-lead">Понятный процесс. Внимание к вашей технике.</p>
+      <a class="btn btn-primary handoff-primary" href="#services">Выбрать технику</a>
+      <div class="handoff-meta"><span>Приём в сервисе или выезд — по модели</span><span>Доставка техники — по согласованию</span></div>
+    </div>
+    <div class="handoff-mascot" role="img" aria-label="Иллюстрация мастера PROFF.tech с согласованной сметой"><img src="assets/handoff/benefits.png" alt="" fetchpriority="high"></div>
+    <ul class="handoff-assurances" aria-label="Условия ремонта">
+      <li><span class="handoff-check">01</span><span><b>Смета до начала работ</b><small>Согласуем стоимость и срок</small></span></li>
+      <li><span class="handoff-check">02</span><span><b>Обслуживание по модели</b><small>В сервисе или на выезде</small></span></li>
+      <li><span class="handoff-check">03</span><span><b>Гарантия в документах</b><small>Условия фиксируем при выдаче</small></span></li>
+    </ul>
   </div>
 </section>
 <div class="client-details"><div class="wrap"><p><b>Сначала — диагностика.</b> От 1 000 ₽, при ремонте входит в стоимость. Приём — после уточнения модели.</p><div class="client-detail-links"><a href="#prices">Условия и стоимость <span aria-hidden="true">↗</span></a><a href="#faq">Частые вопросы <span aria-hidden="true">↗</span></a></div></div></div>
 
 <!-- ================= УСЛУГИ ================= -->
-<section id="services"><div class="wrap"><div class="sec-head rv"><span class="kicker">Услуги</span><h2>Что ремонтируем</h2><p>Найдите свою категорию и бренд. Модель, формат обслуживания и время визита уточним при обращении.</p></div><aside class="model-check rv" aria-labelledby="model-check-title"><div><h3 id="model-check-title">Не уверены, примем ли вашу модель?</h3><p>Назовите бренд, модель и неисправность — подтвердим приём до визита.</p></div><a class="btn btn-primary" href="tel:+79770900560" aria-label="Позвонить и уточнить приём модели"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Уточнить по модели</a></aside><div class="svc-grid brief-catalog">
+<section id="services"><div class="service-intro-handoff wrap"><div><span class="handoff-eyebrow">ВАША ТЕХНИКА В НАДЁЖНЫХ РУКАХ</span><h2>Разбираемся в деталях</h2><p>Кофемашины, ноутбуки и премиальная бытовая техника.</p></div><div class="handoff-magnifier" aria-hidden="true"><img src="assets/handoff/magnifier.png" alt="" loading="lazy" decoding="async"></div></div><div class="wrap"><div class="sec-head rv"><span class="kicker">Услуги</span><h2>Что ремонтируем</h2><p>Найдите свою категорию и бренд. Модель, формат обслуживания и время визита уточним при обращении.</p></div><aside class="model-check rv" aria-labelledby="model-check-title"><div><h3 id="model-check-title">Не уверены, примем ли вашу модель?</h3><p>Назовите бренд, модель и неисправность — подтвердим приём до визита.</p></div><a class="btn btn-primary" href="tel:+79770900560" aria-label="Позвонить и уточнить приём модели"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Уточнить по модели</a></aside><div class="svc-grid brief-catalog">
       <article class="svc rv" id="service-coffee-machines">
         <div class="catalog-photo"><img src="images/catalog-coffee-cutout.png" alt="Кофемашина De’Longhi Magnifica S" loading="lazy" decoding="async"></div>
         <div class="svc-body">
@@ -1188,41 +1195,16 @@ body.service-focus-open{overflow:hidden}
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Как работаем</span>
-      <h2>Пять шагов от поломки до гарантии</h2>
+      <h2>Шесть этапов — от обращения до гарантии</h2>
       <p>Проверяем, согласуем и только затем ремонтируем.</p>
     </div>
-    <ol class="steps rv">
-      
-      <li class="step">
-        <span class="step-num">1</span>
-        <h3>Звонок</h3>
-        <p>Позвоните: уточним модель и симптомы, подскажем примерный бюджет.</p>
-        <span class="when">уточним детали</span>
-      </li>
-      <li class="step">
-        <span class="step-num">2</span>
-        <h3>Проверка техники</h3>
-        <p>Проводим замеры, находим неисправный узел и определяем необходимые работы.</p>
-        <span class="when">определяем причину</span>
-      </li>
-      <li class="step">
-        <span class="step-num">3</span>
-        <h3>Смета</h3>
-        <p>Называем точную цену и срок. Не начинаем работу, пока вы не согласовали смету.</p>
-        <span class="when">фиксируем письменно</span>
-      </li>
-      <li class="step">
-        <span class="step-num">4</span>
-        <h3>Ремонт</h3>
-        <p>Чиним, меняем запчасти, проверяем под нагрузкой. Если нужен заказ детали — сообщаем срок.</p>
-        <span class="when">точный срок заранее</span>
-      </li>
-      <li class="step">
-        <span class="step-num">5</span>
-        <h3>Выдача с гарантией</h3>
-        <p>Вы проверяете технику в работе, затем оплачиваете. Гарантия на работы и запчасти — в заказ-наряде и гарантийном талоне.</p>
-        <span class="when">оплата после проверки</span>
-      </li>
+    <ol class="handoff-stairs rv" aria-label="Шесть этапов ремонта">
+      <li><span>01</span><div><b>Обращение</b><small>Уточняем модель и симптомы</small></div></li>
+      <li><span>02</span><div><b>Диагностика</b><small>Находим причину неисправности</small></div></li>
+      <li><span>03</span><div><b>Согласование</b><small>Фиксируем стоимость и срок до работ</small></div></li>
+      <li><span>04</span><div><b>Запчасти</b><small>Подбираем при необходимости</small></div></li>
+      <li><span>05</span><div><b>Ремонт</b><small>Выполняем согласованные работы</small></div></li>
+      <li><span>06</span><div><b>Проверка и оплата</b><small>Проверяете результат, получаете документы</small></div></li>
     </ol>
   </div>
 </section>
@@ -1790,6 +1772,67 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .workshop-gallery .cap{padding:18px}
 }
 @media(prefers-reduced-motion:reduce){.workshop-photos img{transition:none}.workshop-photos a:hover img{transform:none}}
+</style>
+
+
+<style id="handoff-physical-design">
+/* Physical site visual direction from the supplied handoff mockups. */
+.handoff-hero{padding:clamp(52px,7vw,94px) 0 32px;background:radial-gradient(ellipse 48% 80% at 83% 18%,rgba(46,102,158,.22),transparent 72%),linear-gradient(132deg,#09182b 0%,#102847 58%,#0b1c31 100%)!important;color:#f4f7fb}
+.handoff-hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(300px,.88fr);grid-template-rows:auto auto;gap:18px 42px;align-items:center}
+.handoff-hero-copy{min-width:0}.handoff-eyebrow{display:block;color:#8fb3d4;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.handoff-hero h1{max-width:14ch;margin:18px 0 16px;color:#f6f8fb;font-size:clamp(40px,5vw,68px);line-height:1.04;letter-spacing:-.045em}
+.handoff-lead{margin:0 0 25px;color:#c4d2df;font-size:clamp(17px,2vw,22px);line-height:1.45}
+.handoff-primary{min-height:52px;padding:0 24px;border-radius:8px;background:linear-gradient(110deg,#226db0,#347eae);box-shadow:0 8px 26px rgba(7,32,62,.26)}
+.handoff-meta{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;color:#b1c5d7;font-size:13px;line-height:1.5}.handoff-meta span::before{content:'•';color:#70a8d6;margin-right:8px}
+.handoff-mascot{position:relative;min-width:0;width:100%;aspect-ratio:1.18;overflow:hidden;isolation:isolate}.handoff-mascot img{position:absolute;width:320%;max-width:none;left:-201%;top:-28%;mix-blend-mode:lighten;pointer-events:none}
+.handoff-assurances{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:10px 0 0;padding:22px 0 0;border-top:1px solid rgba(204,222,239,.2);gap:16px}
+.handoff-assurances li{display:flex;align-items:center;gap:13px;min-width:0;padding-right:14px}.handoff-check{display:grid;place-items:center;width:34px;height:34px;flex:none;border:1px solid rgba(128,178,218,.4);border-radius:50%;color:#91c5ee;font-size:11px;font-weight:700}
+.handoff-assurances b,.handoff-assurances small{display:block}.handoff-assurances b{color:#f3f6f9;font-size:14px;line-height:1.4}.handoff-assurances small{margin-top:3px;color:#aebfd0;font-size:12px;line-height:1.45}
+.service-intro-handoff{display:grid;grid-template-columns:1fr .7fr;align-items:center;gap:32px;padding-top:30px;padding-bottom:8px}.service-intro-handoff h2{margin:12px 0 8px;color:var(--text);font-size:clamp(27px,3vw,38px)}.service-intro-handoff p{color:var(--soft);margin:0}.handoff-magnifier{position:relative;height:150px;overflow:hidden;isolation:isolate}.handoff-magnifier img{position:absolute;width:220%;max-width:none;left:-115%;top:-51%;mix-blend-mode:lighten}
+.handoff-stairs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:0;counter-reset:stair}
+.handoff-stairs li{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:170px;padding:17px 14px;border:1px solid rgba(165,192,219,.16);border-top:3px solid #385574;border-radius:8px;background:linear-gradient(155deg,#142d49,#10213a);color:#f4f7fa;transition:transform .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease}
+.handoff-stairs li:nth-child(1){min-height:135px}.handoff-stairs li:nth-child(2){min-height:145px}.handoff-stairs li:nth-child(3){min-height:155px}.handoff-stairs li:nth-child(4){min-height:165px}.handoff-stairs li:nth-child(5){min-height:175px}.handoff-stairs li:nth-child(6){min-height:185px}
+.handoff-stairs li.is-lit{border-top-color:#5ca6e1;background:linear-gradient(155deg,#183d60,#112b49);box-shadow:0 10px 28px rgba(4,15,31,.2);transform:translateY(-5px)}
+.handoff-stairs li>span{font-size:23px;line-height:1;font-weight:700;color:#80b7e5}.handoff-stairs li b{display:block;margin-top:14px;font-size:15px;line-height:1.25}.handoff-stairs li small{display:block;margin-top:7px;color:#b7c8d8;font-size:11px;line-height:1.45}
+@media(max-width:900px){.handoff-stairs{grid-template-columns:repeat(3,minmax(0,1fr))}.handoff-stairs li,.handoff-stairs li:nth-child(n){min-height:130px}}
+@media(max-width:600px){.handoff-hero{padding:34px 0 24px}.handoff-hero-grid{grid-template-columns:1fr;gap:8px}.handoff-hero h1{max-width:13ch;font-size:clamp(36px,9vw,46px);margin:13px 0}.handoff-lead{font-size:17px;margin-bottom:18px}.handoff-primary{width:100%;justify-content:center}.handoff-mascot{width:min(100%,340px);aspect-ratio:1.38;margin:0 auto}.handoff-meta{margin-top:10px;gap:5px 14px;font-size:12px}.handoff-assurances{grid-template-columns:1fr;gap:0;margin-top:0;padding-top:10px}.handoff-assurances li{padding:9px 0;border-bottom:1px solid rgba(204,222,239,.12)}.handoff-assurances li:last-child{border-bottom:0}.handoff-check{width:29px;height:29px}.handoff-assurances b{font-size:13px}.handoff-assurances small{font-size:11px}.service-intro-handoff{grid-template-columns:1fr;gap:0;padding-top:22px}.service-intro-handoff h2{font-size:28px}.service-intro-handoff p{font-size:15px}.handoff-magnifier{display:none}.handoff-stairs{grid-template-columns:1fr;gap:8px}.handoff-stairs li,.handoff-stairs li:nth-child(n){min-height:76px;display:grid;grid-template-columns:46px 1fr;align-items:center;justify-content:start;padding:12px 14px}.handoff-stairs li>span{font-size:22px;grid-row:1/3}.handoff-stairs li b{margin:0;font-size:14px}.handoff-stairs li small{margin-top:4px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.handoff-stairs li{transition:none}.handoff-stairs li.is-lit{transform:none}}
+</style>
+<script>
+(()=>{const list=document.querySelector('.handoff-stairs');if(!list)return;const items=[...list.children];const activate=()=>items.forEach((el,i)=>setTimeout(()=>el.classList.add('is-lit'),i*140));if(matchMedia('(prefers-reduced-motion: reduce)').matches){activate();return}const observer=new IntersectionObserver((entries)=>{if(entries.some(e=>e.isIntersecting)){activate();observer.disconnect()}},{threshold:.25});observer.observe(list)})();
+</script>
+
+
+<style id="handoff-physical-system">
+/* Apply the supplied navy/blue mockup language to the whole physical site while preserving its light theme. */
+:root:not([data-theme="light"]){--bg:#0a1422;--surface:#10243a;--surface-2:#172d44;--line:rgba(173,202,226,.18);--text:#f0f5f9;--soft:#b7c9d8;--muted:#91a7ba;--accent:#4b98d3;--accent-strong:#6bb4ec;--accent-text:#9bcbed;--accent-soft:rgba(76,151,211,.14);--header:rgba(9,20,34,.94);--shadow:0 18px 42px rgba(0,0,0,.24)}
+:root:not([data-theme="light"]) body{background:linear-gradient(180deg,#0a1422 0%,#0c1928 48%,#0a1422 100%) fixed!important;color:#f0f5f9}
+:root:not([data-theme="light"]) #siteHeader,:root:not([data-theme="light"]) .site{background:rgba(9,20,34,.94)!important;border-color:rgba(173,202,226,.16)!important;color:#f0f5f9!important;box-shadow:0 8px 28px rgba(0,0,0,.16)}
+:root:not([data-theme="light"]) #siteHeader .logo-name b,:root:not([data-theme="light"]) #siteHeader nav.menu>a,:root:not([data-theme="light"]) #siteHeader .tel{color:#e9f2f8!important}:root:not([data-theme="light"]) #siteHeader nav.menu>a:hover{color:#8fc6ed!important}
+:root:not([data-theme="light"]) section:not(.hero):not(.handoff-hero),:root:not([data-theme="light"]) footer{background:linear-gradient(160deg,#0c1a2a 0%,#0d1b2b 56%,#101a2a 100%)!important;color:#eef4f8;border-color:rgba(173,202,226,.1)}
+:root:not([data-theme="light"]) #services,:root:not([data-theme="light"]) #steps,:root:not([data-theme="light"]) #prices,:root:not([data-theme="light"]) #adv,:root:not([data-theme="light"]) #contacts{background:linear-gradient(145deg,#0e1e30 0%,#0c1b2c 58%,#101a2c 100%)!important}
+:root:not([data-theme="light"]) .sec-head h2,:root:not([data-theme="light"]) section h2,:root:not([data-theme="light"]) section h3{color:#f0f5f9}:root:not([data-theme="light"]) .sec-head p,:root:not([data-theme="light"]) section p{color:#b7c9d8}
+:root:not([data-theme="light"]) .svc,:root:not([data-theme="light"]) .diag-card,:root:not([data-theme="light"]) .pnote,:root:not([data-theme="light"]) .adv,:root:not([data-theme="light"]) .b2b,:root:not([data-theme="light"]) .ct-card,:root:not([data-theme="light"]) .map-wrap,:root:not([data-theme="light"]) .review-card,:root:not([data-theme="light"]) .model-check,:root:not([data-theme="light"]) .contact-card{background:linear-gradient(145deg,#152b42 0%,#12263b 70%,#192841 100%)!important;border-color:rgba(173,202,226,.2)!important;color:#edf4f8;box-shadow:0 12px 32px rgba(0,0,0,.16)}
+:root:not([data-theme="light"]) .svc:hover{border-color:rgba(119,183,228,.5)!important;box-shadow:0 18px 38px rgba(0,0,0,.25)}
+:root:not([data-theme="light"]) .catalog-photo,:root:not([data-theme="light"]) .svc-ill,:root:not([data-theme="light"]) .adv-photo{background:linear-gradient(140deg,#123654,#132945 58%,#1d2945)!important;border-color:rgba(173,202,226,.18)}
+:root:not([data-theme="light"]) .svc-body h3,:root:not([data-theme="light"]) .review-card blockquote,:root:not([data-theme="light"]) .pnote h3,:root:not([data-theme="light"]) .diag-card b{color:#f1f6fa!important}
+:root:not([data-theme="light"]) .service-description,:root:not([data-theme="light"]) .svc-body>p,:root:not([data-theme="light"]) .pnote p,:root:not([data-theme="light"]) .diag-card p,:root:not([data-theme="light"]) .price-note,:root:not([data-theme="light"]) .review-card p{color:#b8cad8!important}
+:root:not([data-theme="light"]) .brand-list li,:root:not([data-theme="light"]) .service-list-item{background:rgba(126,169,205,.09);border-color:rgba(173,202,226,.2);color:#dce9f2}
+:root:not([data-theme="light"]) .service-list-item.is-target-service,:root:not([data-theme="light"]) .service-list-item.is-utm-target{background:rgba(72,145,201,.24);border-color:#79bfea;color:#f4f8fb}
+:root:not([data-theme="light"]) .handoff-stairs li{background:linear-gradient(145deg,#142b43,#10233a)!important;border-color:rgba(173,202,226,.19)!important;border-top-color:#3a6587!important;color:#f0f5f9}
+:root:not([data-theme="light"]) .handoff-stairs li.is-lit{background:linear-gradient(145deg,#1a3f60,#14304c)!important;border-top-color:#72b7e8!important;box-shadow:0 10px 28px rgba(0,0,0,.22)}
+:root:not([data-theme="light"]) .faq-item{border-color:rgba(173,202,226,.17)}:root:not([data-theme="light"]) .faq-item summary{color:#eef4f8}:root:not([data-theme="light"]) .faq-item p{color:#b7c9d8}
+:root:not([data-theme="light"]) .price-grid .plist,:root:not([data-theme="light"]) .plist .prow{border-color:rgba(173,202,226,.18)}:root:not([data-theme="light"]) .plist .prow span{color:#b6c8d7}:root:not([data-theme="light"]) .plist .prow b{color:#eef4f8}
+:root:not([data-theme="light"]) .workshop-photos{background:#132b41}:root:not([data-theme="light"]) .workshop-photos a{background:#102238}
+:root:not([data-theme="light"]) .client-details{background:#10243a!important;border-color:rgba(173,202,226,.16)!important;color:#d9e7f1}:root:not([data-theme="light"]) .client-details p{color:#c4d3df}:root:not([data-theme="light"]) .client-details a{color:#9bcbed}
+:root:not([data-theme="light"]) .btn-primary,:root:not([data-theme="light"]) .mbar .btn-primary{background:linear-gradient(110deg,#236da9 0%,#357fae 54%,#2d648f 100%)!important;color:#fff!important;border-color:rgba(171,215,247,.22);box-shadow:0 8px 24px rgba(11,55,92,.28)!important}
+:root:not([data-theme="light"]) .btn-primary:hover{background:linear-gradient(110deg,#2f82bd,#4695c8 54%,#3976a2)!important}
+:root:not([data-theme="light"]) .client-catalog,:root:not([data-theme="light"]) .svc-link,:root:not([data-theme="light"]) .review-actions a{color:#a3d1f1;border-color:rgba(163,209,241,.48)}
+:root:not([data-theme="light"]) .mbar{background:rgba(9,20,34,.94)!important;border-color:rgba(173,202,226,.17)!important;box-shadow:0 -8px 24px rgba(0,0,0,.14)}
+:root:not([data-theme="light"]) footer{border-top:1px solid rgba(173,202,226,.17)!important}:root:not([data-theme="light"]) footer a{color:#b7d8ef}
+:root[data-theme="light"] .handoff-hero{background:radial-gradient(ellipse 48% 80% at 83% 18%,rgba(64,123,168,.16),transparent 72%),linear-gradient(132deg,#eaf2f8 0%,#f2f6fa 58%,#eaf1f7 100%)!important;color:#1d3449}
+:root[data-theme="light"] .handoff-hero h1{color:#18324a}:root[data-theme="light"] .handoff-lead{color:#49657d}:root[data-theme="light"] .handoff-eyebrow{color:#315f84}:root[data-theme="light"] .handoff-meta{color:#49657d}:root[data-theme="light"] .handoff-assurances b{color:#1d3449}:root[data-theme="light"] .handoff-assurances small{color:#49657d}:root[data-theme="light"] .handoff-assurances{border-top-color:rgba(49,90,120,.2)}:root[data-theme="light"] .handoff-assurances li{border-color:rgba(49,90,120,.12)}:root[data-theme="light"] .handoff-check{color:#315f84;border-color:rgba(49,90,120,.3)}:root[data-theme="light"] .handoff-primary{background:linear-gradient(110deg,#236da9,#357fae 54%,#2d648f)!important;color:white!important}
+:root[data-theme="light"] .handoff-stairs li{background:linear-gradient(145deg,#e9f1f7,#e2ebf3)!important;border-color:rgba(49,90,120,.18)!important;color:#1d3449}:root[data-theme="light"] .handoff-stairs li b{color:#1d3449}:root[data-theme="light"] .handoff-stairs li small{color:#49657d}:root[data-theme="light"] .handoff-stairs li>span{color:#315f84}:root[data-theme="light"] .handoff-stairs li.is-lit{background:linear-gradient(145deg,#dcecf7,#e6eef7)!important;border-top-color:#4d91c3!important}
 </style>
 
 </body>

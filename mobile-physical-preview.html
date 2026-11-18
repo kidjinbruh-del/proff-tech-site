@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROFF.tech — мобильный предпросмотр</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font:14px/1.45 Inter,system-ui,sans-serif;color:#1a2b3b;background:#e9eef3}
+body{display:flex;flex-direction:column;align-items:center;padding:18px 14px 28px;gap:12px}
+.top{width:min(100%,580px);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.top b{font-size:15px}.top a{color:#315d82;text-decoration:none;font-weight:600}
+.note{width:min(100%,580px);color:#607283;font-size:12px}
+.phone{width:min(390px,calc(100vw - 32px));height:min(844px,calc(100vh - 116px));min-height:500px;border:7px solid #172231;border-radius:34px;overflow:hidden;background:#fff;box-shadow:0 20px 52px rgba(18,38,56,.22)}
+.phone iframe{display:block;width:100%;height:100%;border:0}
+</style>
+</head>
+<body>
+<div class="top"><b>Мобильная версия · 390 px</b><a href="index.html?preview=nov18#top">Открыть страницу отдельно</a></div>
+<div class="note">Предпросмотр локальный. Прокрутка работает внутри экрана телефона; кнопка звонка закреплена снизу.</div>
+<div class="phone"><iframe src="index.html?preview=nov18#top" title="Мобильная версия PROFF.tech"></iframe></div>
+</body>
+</html>

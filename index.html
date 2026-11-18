@@ -1644,6 +1644,8 @@ serviceCatalog.forEach(function(category){
   var card=document.getElementById(category.card);if(!card)return;
   categoryByUtm[category.category]=category;categoryById[category.card]=category;
   card.classList.add('has-service-list');card.dataset.serviceCategory=category.category;
+  card.dataset.utmContent=category.category;
+  card.dataset.utmUrl='?utm_source=yandex&utm_medium=maps&utm_campaign=business_fiz&utm_content='+encodeURIComponent(category.category)+'#'+category.card;
   var body=card.querySelector('.svc-body');if(!body)return;
   var trustList=body.querySelector('.service-focus-proof');
   if(!trustList){
@@ -1879,7 +1881,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 /* Catalogue hierarchy and accessible controls throughout the physical site. */
 #services .brief-catalog .svc:not(.is-focused){background:var(--surface)!important;border-color:var(--line);box-shadow:none}
 #services .brief-catalog .svc:not(.is-focused):hover{border-color:var(--accent-text);box-shadow:0 12px 30px rgba(0,0,0,.12)}
-#services .brief-catalog .svc .catalog-photo{background:var(--surface-2)!important}
+#services .brief-catalog .svc .catalog-photo{background:transparent!important;border:0!important}
 #services .brief-catalog .svc .svc-body h3{color:var(--text)}
 #services .brief-catalog .svc .service-description,#services .brief-catalog .svc .svc-sub,#services .brief-catalog .svc .brand-list li{color:var(--soft)}
 #services .brief-catalog .svc .service-format{color:var(--accent-text)}
@@ -1955,6 +1957,23 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
     width:auto;min-height:52px;
   }
   .cookie-bar{bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+}
+
+/* Transparent product cutouts share the solid background of their card. */
+#services .brief-catalog .svc .svc-body{background:transparent!important}
+:root .service-focus-stage .svc.is-focused .catalog-photo{
+  background:transparent!important;border:0!important;box-shadow:none!important;
+}
+#services .catalog-photo img,
+.service-focus-stage .catalog-photo img{background:transparent!important}
+
+/* The close control sits above the scrollable card in its own reserved space. */
+.service-focus-stage{padding-top:52px;max-height:calc(100dvh - 64px)}
+.service-focus-stage>.service-focus-close{top:0;right:0}
+.service-focus-stage>.svc.is-focused{max-height:calc(100dvh - 116px)}
+@media(max-width:680px){
+  .service-focus-stage{max-height:calc(100dvh - 20px)}
+  .service-focus-stage>.svc.is-focused{max-height:calc(100dvh - 72px)}
 }
 </style>
 </body>

@@ -1840,8 +1840,8 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 <style id="physical-review-fixes">
 /* Alignment, legibility and consistent blue actions, based on the reviewed handoff mockup. */
 .handoff-mascot{border-radius:26px;background:#03132e}
-.handoff-mascot{aspect-ratio:1.76}
-.handoff-mascot img{position:absolute;width:232%;max-width:none;left:-132%;top:-48%;border-radius:26px;mix-blend-mode:lighten;pointer-events:none}
+.handoff-mascot{aspect-ratio:2.08}
+.handoff-mascot img{position:absolute;width:204%;max-width:none;left:-104%;top:-48%;border-radius:26px;clip-path:polygon(58% 0,100% 0,100% 100%,0 100%,0 41%,54% 41%,54% 33%,58% 33%);mix-blend-mode:lighten;pointer-events:none}
 .service-intro-handoff .handoff-magnifier{height:250px;border:1px solid rgba(155,183,220,.2);border-radius:20px;background:#03132e}
 .service-intro-handoff .handoff-magnifier img{width:232%;left:-132%;top:-48%}
 .price-grid,.price-grid>*{min-width:0}
@@ -1862,18 +1862,18 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 /* Use the same blue gradient as the main “Выбрать технику” button for every action. */
 :root{--physical-action:linear-gradient(110deg,#226db0 0%,#347eae 100%);--physical-action-hover:linear-gradient(110deg,#2f82bd 0%,#4695c8 100%)}
-.btn-primary,.btn-ghost,.site .btn-primary,.site .btn-ghost,.mbar .btn,.tel-m,.site .tel,.theme-btn,
+.btn-primary,.btn-ghost,.site .btn-primary,.site .btn-ghost,.mbar .btn,.tel-m,.theme-btn,
 .svc-link,.service-list-toggle,.service-focus-stage>.service-focus-call,.service-focus-stage>.service-focus-close,
 .msgr,.ct-actions .btn,.gis-card .btn,.model-check .btn,.cookie-actions button,
 #contacts .mtab[aria-selected="true"]{background:var(--physical-action)!important;color:#fff!important;border-color:rgba(171,215,247,.42)!important;box-shadow:0 6px 18px rgba(15,57,96,.24)!important}
-.btn-primary:hover,.btn-ghost:hover,.site .tel:hover,.tel-m:hover,.theme-btn:hover,.svc-link:hover,
+.btn-primary:hover,.btn-ghost:hover,.tel-m:hover,.theme-btn:hover,.svc-link:hover,
 .service-list-toggle:hover,.service-focus-stage>.service-focus-call:hover,.service-focus-stage>.service-focus-close:hover,
 .msgr:hover,.ct-actions .btn:hover,.gis-card .btn:hover,.model-check .btn:hover,.cookie-actions button:hover,
 #contacts .mtab[aria-selected="true"]:hover{background:var(--physical-action-hover)!important}
 #contacts .mtab:not([aria-selected="true"]){background:linear-gradient(110deg,rgba(34,109,176,.3),rgba(52,126,174,.3))!important;border-color:rgba(155,183,220,.28)!important;color:#dcecff!important}
 :root[data-theme="light"] #contacts .mtab:not([aria-selected="true"]){color:#315f84!important}
-.btn:focus-visible,.svc-link:focus-visible,.service-list-toggle:focus-visible,.mtab:focus-visible,.msgr:focus-visible,.theme-btn:focus-visible,.tel-m:focus-visible{outline:3px solid #8fc6ed;outline-offset:3px}
-@media(max-width:600px){.handoff-mascot{width:min(100%,340px);aspect-ratio:1.76;border-radius:20px}.handoff-mascot img{border-radius:20px}.price-note{font-size:13px}}
+.btn:focus-visible,.svc-link:focus-visible,.service-list-toggle:focus-visible,.mtab:focus-visible,.msgr:focus-visible,.theme-btn:focus-visible,.tel-m:focus-visible,.site .tel:focus-visible{outline:3px solid #8fc6ed;outline-offset:3px}
+@media(max-width:600px){.handoff-mascot{width:min(100%,340px);aspect-ratio:2.08;border-radius:20px}.handoff-mascot img{border-radius:20px}.price-note{font-size:13px}}
 </style>
 </body>
 </html>

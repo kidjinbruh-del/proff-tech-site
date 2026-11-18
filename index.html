@@ -1201,10 +1201,10 @@ body.service-focus-open{overflow:hidden}
     <ol class="handoff-stairs rv" aria-label="Шесть этапов ремонта">
       <li><span>01</span><div><b>Обращение</b><small>Уточняем модель и симптомы</small></div></li>
       <li><span>02</span><div><b>Диагностика</b><small>Находим причину неисправности</small></div></li>
-      <li><span>03</span><div><b>Согласование</b><small>Фиксируем стоимость и срок до работ</small></div></li>
-      <li><span>04</span><div><b>Запчасти</b><small>Подбираем при необходимости</small></div></li>
+      <li><span>03</span><div><b>Согласование</b><small>Фиксируем смету и срок до начала ремонта</small></div></li>
+      <li><span>04</span><div><b>Запчасти</b><small>Подбираем и согласуем при необходимости</small></div></li>
       <li><span>05</span><div><b>Ремонт</b><small>Выполняем согласованные работы</small></div></li>
-      <li><span>06</span><div><b>Проверка и оплата</b><small>Проверяете результат, получаете документы</small></div></li>
+      <li><span>06</span><div><b>Проверка и оплата</b><small>Проверяете результат, получаете документы и гарантию</small></div></li>
     </ol>
   </div>
 </section>
@@ -1270,12 +1270,12 @@ body.service-focus-open{overflow:hidden}
         <div class="workshop-photos" aria-label="Фотографии мастерской и работы сервиса">
           <a href="images/workshop-bench-yandex.jpg" target="_blank" rel="noopener"><img src="images/workshop-bench-yandex.jpg" width="1024" height="768" alt="Рабочее место мастера PROFF.tech для диагностики техники" loading="lazy" decoding="async"></a>
           <a href="images/workshop-diagnostics-yandex.jpg" target="_blank" rel="noopener"><img src="images/workshop-diagnostics-yandex.jpg" width="375" height="500" alt="Мастер PROFF.tech проводит диагностику бытовой техники" loading="lazy" decoding="async"></a>
-          <a href="images/workshop-entrance-yandex.jpg" target="_blank" rel="noopener"><img src="images/workshop-entrance-yandex.jpg" width="768" height="1024" alt="Вход в мастерскую PROFF.tech в Рязани на улице Стройкова, 38" loading="lazy" decoding="async"></a>
+          <a href="assets/img/about/engineer-proftech.jpg" target="_blank" rel="noopener"><img src="assets/img/about/engineer-proftech.jpg" width="900" height="1350" alt="Специалист PROFF.tech у сервисного оборудования" loading="lazy" decoding="async"></a>
         </div>
         <figcaption class="cap">
           <b>Мастерская PROFF.tech — Рязань, ул. Стройкова, 38</b>
           <span class="badge"><svg class="ic ic-18"><use href="#i-star"/></svg>Ремонт в мастерской</span>
-          <p class="sign-copy">Реальные фотографии из карточки мастерской. <a href="https://yandex.ru/maps/org/203263653516/" target="_blank" rel="noopener">Ещё фото и вход — в Яндекс Картах</a>.</p>
+          <p class="sign-copy">Мастерская и специалист сервиса. <a href="https://yandex.ru/maps/org/203263653516/" target="_blank" rel="noopener">Реальные фото мастерской и входа — в Яндекс Картах</a>.</p>
         </figcaption>
       </figure>
     </div>
@@ -1805,35 +1805,73 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 
 <style id="handoff-physical-system">
 /* Apply the supplied navy/blue mockup language to the whole physical site while preserving its light theme. */
-:root:not([data-theme="light"]){--bg:#0a1422;--surface:#10243a;--surface-2:#172d44;--line:rgba(173,202,226,.18);--text:#f0f5f9;--soft:#b7c9d8;--muted:#91a7ba;--accent:#4b98d3;--accent-strong:#6bb4ec;--accent-text:#9bcbed;--accent-soft:rgba(76,151,211,.14);--header:rgba(9,20,34,.94);--shadow:0 18px 42px rgba(0,0,0,.24)}
-:root:not([data-theme="light"]) body{background:linear-gradient(180deg,#0a1422 0%,#0c1928 48%,#0a1422 100%) fixed!important;color:#f0f5f9}
-:root:not([data-theme="light"]) #siteHeader,:root:not([data-theme="light"]) .site{background:rgba(9,20,34,.94)!important;border-color:rgba(173,202,226,.16)!important;color:#f0f5f9!important;box-shadow:0 8px 28px rgba(0,0,0,.16)}
-:root:not([data-theme="light"]) #siteHeader .logo-name b,:root:not([data-theme="light"]) #siteHeader nav.menu>a,:root:not([data-theme="light"]) #siteHeader .tel{color:#e9f2f8!important}:root:not([data-theme="light"]) #siteHeader nav.menu>a:hover{color:#8fc6ed!important}
-:root:not([data-theme="light"]) section:not(.hero):not(.handoff-hero),:root:not([data-theme="light"]) footer{background:linear-gradient(160deg,#0c1a2a 0%,#0d1b2b 56%,#101a2a 100%)!important;color:#eef4f8;border-color:rgba(173,202,226,.1)}
-:root:not([data-theme="light"]) #services,:root:not([data-theme="light"]) #steps,:root:not([data-theme="light"]) #prices,:root:not([data-theme="light"]) #adv,:root:not([data-theme="light"]) #contacts{background:linear-gradient(145deg,#0e1e30 0%,#0c1b2c 58%,#101a2c 100%)!important}
-:root:not([data-theme="light"]) .sec-head h2,:root:not([data-theme="light"]) section h2,:root:not([data-theme="light"]) section h3{color:#f0f5f9}:root:not([data-theme="light"]) .sec-head p,:root:not([data-theme="light"]) section p{color:#b7c9d8}
-:root:not([data-theme="light"]) .svc,:root:not([data-theme="light"]) .diag-card,:root:not([data-theme="light"]) .pnote,:root:not([data-theme="light"]) .adv,:root:not([data-theme="light"]) .b2b,:root:not([data-theme="light"]) .ct-card,:root:not([data-theme="light"]) .map-wrap,:root:not([data-theme="light"]) .review-card,:root:not([data-theme="light"]) .model-check,:root:not([data-theme="light"]) .contact-card{background:linear-gradient(145deg,#152b42 0%,#12263b 70%,#192841 100%)!important;border-color:rgba(173,202,226,.2)!important;color:#edf4f8;box-shadow:0 12px 32px rgba(0,0,0,.16)}
-:root:not([data-theme="light"]) .svc:hover{border-color:rgba(119,183,228,.5)!important;box-shadow:0 18px 38px rgba(0,0,0,.25)}
-:root:not([data-theme="light"]) .catalog-photo,:root:not([data-theme="light"]) .svc-ill,:root:not([data-theme="light"]) .adv-photo{background:linear-gradient(140deg,#123654,#132945 58%,#1d2945)!important;border-color:rgba(173,202,226,.18)}
-:root:not([data-theme="light"]) .svc-body h3,:root:not([data-theme="light"]) .review-card blockquote,:root:not([data-theme="light"]) .pnote h3,:root:not([data-theme="light"]) .diag-card b{color:#f1f6fa!important}
-:root:not([data-theme="light"]) .service-description,:root:not([data-theme="light"]) .svc-body>p,:root:not([data-theme="light"]) .pnote p,:root:not([data-theme="light"]) .diag-card p,:root:not([data-theme="light"]) .price-note,:root:not([data-theme="light"]) .review-card p{color:#b8cad8!important}
-:root:not([data-theme="light"]) .brand-list li,:root:not([data-theme="light"]) .service-list-item{background:rgba(126,169,205,.09);border-color:rgba(173,202,226,.2);color:#dce9f2}
-:root:not([data-theme="light"]) .service-list-item.is-target-service,:root:not([data-theme="light"]) .service-list-item.is-utm-target{background:rgba(72,145,201,.24);border-color:#79bfea;color:#f4f8fb}
-:root:not([data-theme="light"]) .handoff-stairs li{background:linear-gradient(145deg,#142b43,#10233a)!important;border-color:rgba(173,202,226,.19)!important;border-top-color:#3a6587!important;color:#f0f5f9}
-:root:not([data-theme="light"]) .handoff-stairs li.is-lit{background:linear-gradient(145deg,#1a3f60,#14304c)!important;border-top-color:#72b7e8!important;box-shadow:0 10px 28px rgba(0,0,0,.22)}
-:root:not([data-theme="light"]) .faq-item{border-color:rgba(173,202,226,.17)}:root:not([data-theme="light"]) .faq-item summary{color:#eef4f8}:root:not([data-theme="light"]) .faq-item p{color:#b7c9d8}
-:root:not([data-theme="light"]) .price-grid .plist,:root:not([data-theme="light"]) .plist .prow{border-color:rgba(173,202,226,.18)}:root:not([data-theme="light"]) .plist .prow span{color:#b6c8d7}:root:not([data-theme="light"]) .plist .prow b{color:#eef4f8}
-:root:not([data-theme="light"]) .workshop-photos{background:#132b41}:root:not([data-theme="light"]) .workshop-photos a{background:#102238}
-:root:not([data-theme="light"]) .client-details{background:#10243a!important;border-color:rgba(173,202,226,.16)!important;color:#d9e7f1}:root:not([data-theme="light"]) .client-details p{color:#c4d3df}:root:not([data-theme="light"]) .client-details a{color:#9bcbed}
-:root:not([data-theme="light"]) .btn-primary,:root:not([data-theme="light"]) .mbar .btn-primary{background:linear-gradient(110deg,#236da9 0%,#357fae 54%,#2d648f 100%)!important;color:#fff!important;border-color:rgba(171,215,247,.22);box-shadow:0 8px 24px rgba(11,55,92,.28)!important}
-:root:not([data-theme="light"]) .btn-primary:hover{background:linear-gradient(110deg,#2f82bd,#4695c8 54%,#3976a2)!important}
-:root:not([data-theme="light"]) .client-catalog,:root:not([data-theme="light"]) .svc-link,:root:not([data-theme="light"]) .review-actions a{color:#a3d1f1;border-color:rgba(163,209,241,.48)}
-:root:not([data-theme="light"]) .mbar{background:rgba(9,20,34,.94)!important;border-color:rgba(173,202,226,.17)!important;box-shadow:0 -8px 24px rgba(0,0,0,.14)}
-:root:not([data-theme="light"]) footer{border-top:1px solid rgba(173,202,226,.17)!important}:root:not([data-theme="light"]) footer a{color:#b7d8ef}
+:root:not([data-theme="light"]){--bg:#03132e;--surface:#0a1b37;--surface-2:#112443;--line:rgba(155,183,220,.2);--text:#f6f8ff;--soft:#acb9ce;--muted:#91a2bd;--accent:#0759ff;--accent-strong:#1765ff;--accent-text:#9bbcff;--accent-soft:rgba(7,89,255,.16);--header:rgba(3,19,46,.95);--shadow:0 18px 42px rgba(0,0,0,.28)}
+:root:not([data-theme="light"]) body{background:linear-gradient(180deg,#03132e 0%,#071831 52%,#03132e 100%) fixed!important;color:#f6f8ff}
+:root:not([data-theme="light"]) #siteHeader,:root:not([data-theme="light"]) .site{background:rgba(3,19,46,.95)!important;border-color:rgba(155,183,220,.18)!important;color:#f6f8ff!important;box-shadow:0 8px 28px rgba(0,0,0,.2)}
+:root:not([data-theme="light"]) #siteHeader .logo-name b,:root:not([data-theme="light"]) #siteHeader nav.menu>a,:root:not([data-theme="light"]) #siteHeader .tel{color:#edf3ff!important}:root:not([data-theme="light"]) #siteHeader nav.menu>a:hover{color:#91b4ff!important}
+:root:not([data-theme="light"]) section:not(.hero):not(.handoff-hero),:root:not([data-theme="light"]) footer{background:linear-gradient(160deg,#071831 0%,#091b36 56%,#0a1b37 100%)!important;color:#f2f6ff;border-color:rgba(155,183,220,.12)}
+:root:not([data-theme="light"]) #services,:root:not([data-theme="light"]) #steps,:root:not([data-theme="light"]) #prices,:root:not([data-theme="light"]) #adv,:root:not([data-theme="light"]) #contacts{background:linear-gradient(145deg,#081a34 0%,#0a1b37 58%,#0b1d3a 100%)!important}
+:root:not([data-theme="light"]) .sec-head h2,:root:not([data-theme="light"]) section h2,:root:not([data-theme="light"]) section h3{color:#f6f8ff}:root:not([data-theme="light"]) .sec-head p,:root:not([data-theme="light"]) section p{color:#acb9ce}
+:root:not([data-theme="light"]) .svc,:root:not([data-theme="light"]) .diag-card,:root:not([data-theme="light"]) .pnote,:root:not([data-theme="light"]) .adv,:root:not([data-theme="light"]) .b2b,:root:not([data-theme="light"]) .ct-card,:root:not([data-theme="light"]) .map-wrap,:root:not([data-theme="light"]) .review-card,:root:not([data-theme="light"]) .model-check,:root:not([data-theme="light"]) .contact-card{background:linear-gradient(145deg,#0a1b37 0%,#0d2141 70%,#111f3e 100%)!important;border-color:rgba(155,183,220,.2)!important;color:#f2f6ff;box-shadow:0 12px 32px rgba(0,0,0,.2)}
+:root:not([data-theme="light"]) .svc:hover{border-color:rgba(103,151,255,.58)!important;box-shadow:0 18px 38px rgba(0,0,0,.28)}
+:root:not([data-theme="light"]) .catalog-photo,:root:not([data-theme="light"]) .svc-ill,:root:not([data-theme="light"]) .adv-photo{background:linear-gradient(140deg,#102746,#0c1e3a 58%,#142343)!important;border-color:rgba(155,183,220,.2)}
+:root:not([data-theme="light"]) .svc-body h3,:root:not([data-theme="light"]) .review-card blockquote,:root:not([data-theme="light"]) .pnote h3,:root:not([data-theme="light"]) .diag-card b{color:#f6f8ff!important}
+:root:not([data-theme="light"]) .service-description,:root:not([data-theme="light"]) .svc-body>p,:root:not([data-theme="light"]) .pnote p,:root:not([data-theme="light"]) .diag-card p,:root:not([data-theme="light"]) .price-note,:root:not([data-theme="light"]) .review-card p{color:#b8c7dd!important}
+:root:not([data-theme="light"]) .brand-list li,:root:not([data-theme="light"]) .service-list-item{background:rgba(104,143,210,.1);border-color:rgba(155,183,220,.2);color:#e5edfa}
+:root:not([data-theme="light"]) .service-list-item.is-target-service,:root:not([data-theme="light"]) .service-list-item.is-utm-target{background:rgba(7,89,255,.24);border-color:#78a1ff;color:#fff}
+:root:not([data-theme="light"]) .handoff-stairs li{background:linear-gradient(145deg,#0e2343,#0a1b37)!important;border-color:rgba(155,183,220,.2)!important;border-top-color:#2b4b72!important;color:#f6f8ff}
+:root:not([data-theme="light"]) .handoff-stairs li.is-lit{background:linear-gradient(145deg,#173761,#0e2850)!important;border-top-color:#0759ff!important;box-shadow:0 10px 28px rgba(0,0,0,.24)}
+:root:not([data-theme="light"]) .faq-item{border-color:rgba(155,183,220,.18)}:root:not([data-theme="light"]) .faq-item summary{color:#f2f6ff}:root:not([data-theme="light"]) .faq-item p{color:#acb9ce}
+:root:not([data-theme="light"]) .price-grid .plist,:root:not([data-theme="light"]) .plist .prow{border-color:rgba(155,183,220,.2)}:root:not([data-theme="light"]) .plist .prow span{color:#b7c6dc}:root:not([data-theme="light"]) .plist .prow b{color:#f2f6ff}
+:root:not([data-theme="light"]) .workshop-photos{background:#0b2140}:root:not([data-theme="light"]) .workshop-photos a{background:#0a1b37}
+:root:not([data-theme="light"]) .client-details{background:#0a1b37!important;border-color:rgba(155,183,220,.18)!important;color:#e3ebf7}:root:not([data-theme="light"]) .client-details p{color:#c3d0e1}:root:not([data-theme="light"]) .client-details a{color:#9bbcff}
+:root:not([data-theme="light"]) .btn-primary,:root:not([data-theme="light"]) .mbar .btn-primary{background:linear-gradient(130deg,#0862ff,#0744c9)!important;color:#fff!important;border-color:rgba(131,171,255,.28);box-shadow:0 8px 24px rgba(7,35,112,.35)!important}
+:root:not([data-theme="light"]) .btn-primary:hover{background:linear-gradient(130deg,#2876ff,#1455df)!important}
+:root:not([data-theme="light"]) .client-catalog,:root:not([data-theme="light"]) .svc-link,:root:not([data-theme="light"]) .review-actions a{color:#a9c5ff;border-color:rgba(169,197,255,.5)}
+:root:not([data-theme="light"]) .mbar{background:rgba(3,19,46,.95)!important;border-color:rgba(155,183,220,.18)!important;box-shadow:0 -8px 24px rgba(0,0,0,.18)}
+:root:not([data-theme="light"]) footer{border-top:1px solid rgba(155,183,220,.18)!important}:root:not([data-theme="light"]) footer a{color:#b7cfff}
 :root[data-theme="light"] .handoff-hero{background:radial-gradient(ellipse 48% 80% at 83% 18%,rgba(64,123,168,.16),transparent 72%),linear-gradient(132deg,#eaf2f8 0%,#f2f6fa 58%,#eaf1f7 100%)!important;color:#1d3449}
 :root[data-theme="light"] .handoff-hero h1{color:#18324a}:root[data-theme="light"] .handoff-lead{color:#49657d}:root[data-theme="light"] .handoff-eyebrow{color:#315f84}:root[data-theme="light"] .handoff-meta{color:#49657d}:root[data-theme="light"] .handoff-assurances b{color:#1d3449}:root[data-theme="light"] .handoff-assurances small{color:#49657d}:root[data-theme="light"] .handoff-assurances{border-top-color:rgba(49,90,120,.2)}:root[data-theme="light"] .handoff-assurances li{border-color:rgba(49,90,120,.12)}:root[data-theme="light"] .handoff-check{color:#315f84;border-color:rgba(49,90,120,.3)}:root[data-theme="light"] .handoff-primary{background:linear-gradient(110deg,#236da9,#357fae 54%,#2d648f)!important;color:white!important}
 :root[data-theme="light"] .handoff-stairs li{background:linear-gradient(145deg,#e9f1f7,#e2ebf3)!important;border-color:rgba(49,90,120,.18)!important;color:#1d3449}:root[data-theme="light"] .handoff-stairs li b{color:#1d3449}:root[data-theme="light"] .handoff-stairs li small{color:#49657d}:root[data-theme="light"] .handoff-stairs li>span{color:#315f84}:root[data-theme="light"] .handoff-stairs li.is-lit{background:linear-gradient(145deg,#dcecf7,#e6eef7)!important;border-top-color:#4d91c3!important}
 </style>
 
+
+
+<style id="physical-review-fixes">
+/* Alignment, legibility and consistent blue actions, based on the reviewed handoff mockup. */
+.handoff-mascot{border-radius:26px;background:#03132e}
+.handoff-mascot img{border-radius:26px}
+.handoff-magnifier img{left:-120%;top:-51%}
+.price-grid,.price-grid>*{min-width:0}
+#prices .price-note{box-sizing:border-box;width:100%;max-width:none;margin:16px 0 0;padding:14px 16px;border:1px solid rgba(155,183,220,.18);border-radius:12px;font-size:14px;line-height:1.6;overflow-wrap:anywhere}
+:root:not([data-theme="light"]) #prices .price-note{background:linear-gradient(135deg,#0a1b37,#0d2141 70%,#111f3e);color:#d8e3f0}
+:root[data-theme="light"] #prices .price-note{background:linear-gradient(135deg,#f4f8fc,#eaf1f8);border-color:rgba(49,90,120,.16);color:#49657d}
+.workshop-photos a:last-child img{object-position:center 35%}
+.workshop-gallery .sign-copy{line-height:1.55;overflow-wrap:anywhere}
+.handoff-stairs{align-items:stretch}
+.handoff-stairs li,.handoff-stairs li:nth-child(n){box-sizing:border-box;height:100%;min-height:184px;justify-content:space-between;border-radius:8px}
+.handoff-stairs li:nth-child(1),.handoff-stairs li:nth-child(2),.handoff-stairs li:nth-child(3),.handoff-stairs li:nth-child(4),.handoff-stairs li:nth-child(5),.handoff-stairs li:nth-child(6){min-height:184px}
+.handoff-stairs li>span{display:block;font-size:25px}
+.handoff-stairs li>div{margin-top:auto}
+.handoff-stairs li b{margin-top:14px;overflow-wrap:anywhere}
+.handoff-stairs li small{overflow-wrap:anywhere}
+@media(max-width:900px){.handoff-stairs{grid-template-columns:repeat(3,minmax(0,1fr))}.handoff-stairs li,.handoff-stairs li:nth-child(n){min-height:160px}}
+@media(max-width:600px){.handoff-stairs{grid-template-columns:minmax(0,1fr)}.handoff-stairs li,.handoff-stairs li:nth-child(n){height:auto;min-height:78px;display:grid;grid-template-columns:46px minmax(0,1fr);align-items:center;justify-content:start;padding:12px 14px}.handoff-stairs li>span{font-size:22px;grid-row:1/3}.handoff-stairs li>div{min-width:0;margin:0}.handoff-stairs li b{margin:0;font-size:14px}.handoff-stairs li small{margin-top:4px;font-size:12px}}
+
+/* Use the same blue gradient as the main “Выбрать технику” button for every action. */
+:root{--physical-action:linear-gradient(110deg,#226db0 0%,#347eae 100%);--physical-action-hover:linear-gradient(110deg,#2f82bd 0%,#4695c8 100%)}
+.btn-primary,.btn-ghost,.site .btn-primary,.site .btn-ghost,.mbar .btn,.tel-m,.site .tel,.theme-btn,
+.svc-link,.service-list-toggle,.service-focus-stage>.service-focus-call,.service-focus-stage>.service-focus-close,
+.msgr,.ct-actions .btn,.gis-card .btn,.model-check .btn,.cookie-actions button,
+#contacts .mtab[aria-selected="true"]{background:var(--physical-action)!important;color:#fff!important;border-color:rgba(171,215,247,.42)!important;box-shadow:0 6px 18px rgba(15,57,96,.24)!important}
+.btn-primary:hover,.btn-ghost:hover,.site .tel:hover,.tel-m:hover,.theme-btn:hover,.svc-link:hover,
+.service-list-toggle:hover,.service-focus-stage>.service-focus-call:hover,.service-focus-stage>.service-focus-close:hover,
+.msgr:hover,.ct-actions .btn:hover,.gis-card .btn:hover,.model-check .btn:hover,.cookie-actions button:hover,
+#contacts .mtab[aria-selected="true"]:hover{background:var(--physical-action-hover)!important}
+#contacts .mtab:not([aria-selected="true"]){background:linear-gradient(110deg,rgba(34,109,176,.3),rgba(52,126,174,.3))!important;border-color:rgba(155,183,220,.28)!important;color:#dcecff!important}
+:root[data-theme="light"] #contacts .mtab:not([aria-selected="true"]){color:#315f84!important}
+.btn:focus-visible,.svc-link:focus-visible,.service-list-toggle:focus-visible,.mtab:focus-visible,.msgr:focus-visible,.theme-btn:focus-visible,.tel-m:focus-visible{outline:3px solid #8fc6ed;outline-offset:3px}
+@media(max-width:600px){.handoff-mascot{border-radius:20px}.handoff-mascot img{border-radius:20px}.price-note{font-size:13px}}
+</style>
 </body>
 </html>

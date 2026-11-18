@@ -1519,7 +1519,7 @@ if(burger){
   });
   header.querySelectorAll('nav.menu a').forEach(function(a){a.addEventListener('click',closeMenu);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&header.classList.contains('open')){closeMenu();burger.focus();}});
-  window.addEventListener('resize',function(){if(window.innerWidth>880)closeMenu();},{passive:true});
+  window.addEventListener('resize',function(){if(window.innerWidth>1120)closeMenu();},{passive:true});
 }
 
 /* ============================================================
@@ -1875,7 +1875,7 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .btn:focus-visible,.svc-link:focus-visible,.service-list-toggle:focus-visible,.mtab:focus-visible,.msgr:focus-visible,.theme-btn:focus-visible,.tel-m:focus-visible,.site .tel:focus-visible{outline:3px solid #8fc6ed;outline-offset:3px}
 @media(max-width:600px){.handoff-mascot{width:min(100%,340px);aspect-ratio:2.08;border-radius:20px}.handoff-mascot img{border-radius:20px}.price-note{font-size:13px}}
 
-@media(min-width:1121px) and (max-width:1280px){.site .tel{display:none}}
+
 /* Catalogue hierarchy and accessible controls throughout the physical site. */
 #services .brief-catalog .svc:not(.is-focused){background:var(--surface)!important;border-color:var(--line);box-shadow:none}
 #services .brief-catalog .svc:not(.is-focused):hover{border-color:var(--accent-text);box-shadow:0 12px 30px rgba(0,0,0,.12)}
@@ -1916,6 +1916,28 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
 .service-focus-stage .svc.is-focused .service-format>span[aria-hidden]{display:none}
 @media(max-width:680px){
   .service-focus-stage>.service-focus-call{left:16px;right:16px;max-width:none}
+}
+
+/* Keep the text phone visible while adapting the header to available space. */
+.site .tel{background:transparent;box-shadow:none}
+@media(min-width:1121px) and (max-width:1280px){
+  .site>.wrap>.btn{display:none}
+  #siteNav{gap:10px}
+  #siteNav>a{font-size:12px}
+}
+@media(max-width:1120px){
+  .site .burger{display:flex}
+  .site nav.menu{display:none}
+  .site>.wrap>.btn{display:none}
+  .site.open nav.menu{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:2px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 44px rgba(3,8,20,.35);padding:10px 20px 20px;max-height:calc(100dvh - 64px);overflow:auto}
+  .site.open nav.menu>a{padding:14px 6px;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .site.open nav.menu>a:last-of-type{border-bottom:none}
+  .site.open .menu-cta{display:flex;gap:10px;margin-top:16px}
+  .site.open .menu-cta .btn{display:inline-flex;flex:1;padding:12px 16px;min-height:48px;font-size:.95rem}
+}
+@media(min-width:601px) and (max-width:1120px){
+  .site .tel{display:flex;margin-left:auto}
+  .site .tel-m{display:none}
 }
 </style>
 </body>

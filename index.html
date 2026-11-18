@@ -1031,7 +1031,7 @@ body.service-focus-open{overflow:hidden}
     <h1>Ваша техника<br><span>в надёжных руках</span></h1>
     <p class="client-lead">Ремонт ноутбуков, кофемашин<br class="client-break"> и премиальной бытовой техники.</p>
     <div class="client-actions"><a class="btn btn-primary" href="tel:+79770900560" data-cta><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Обсудить ремонт</a><a class="client-catalog" href="#services">Выбрать технику <span aria-hidden="true">↗</span></a></div>
-    <p class="client-contact">+7 (977) 090-05-60 <span>· Пн–пт, 9:00–19:00</span></p>
+    <p class="client-contact"><a href="tel:+79770900560" aria-label="Позвонить по номеру +7 977 090-05-60">+7 (977) 090-05-60</a> <span>· Пн–пт, 9:00–19:00</span></p>
     <ul class="client-assurances" aria-label="Условия ремонта"><li><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg><span>Цена и срок<br><b>до начала работ</b></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span>Личные данные<br><b>конфиденциальны</b></span></li><li><svg class="ic" aria-hidden="true"><use href="#i-delivery"/></svg><span>Доставка техники<br><b>по согласованию</b></span></li></ul>
   </div>
 </section>
@@ -1603,12 +1603,11 @@ function openServiceCard(card,targetRow,originPoint){
   /* Keep the service order and scroll only the focus card to the UTM target. */
   card.scrollTop=0;
   if(targetRow){
+    /* UTM opens the right category and centers the selected service in the card. */
     requestAnimationFrame(function(){requestAnimationFrame(function(){
       if(focusedServiceCard!==card)return;
-      var offset=0,node=targetRow;
-      while(node&&node!==card){offset+=node.offsetTop;node=node.offsetParent;}
-      if(node===card)card.scrollTop=Math.max(0,offset-Math.max(0,(card.clientHeight-targetRow.offsetHeight)/2));
-      else{var rowBox=targetRow.getBoundingClientRect(),cardBox=card.getBoundingClientRect();card.scrollTop+=rowBox.top-cardBox.top-28;}
+      var rowBox=targetRow.getBoundingClientRect(),cardBox=card.getBoundingClientRect();
+      card.scrollTop+=rowBox.top-cardBox.top-(card.clientHeight-rowBox.height)/2;
     });});
   }
 }
@@ -1662,7 +1661,16 @@ function openLinkedService(){
   if(!category){if(focusedServiceCard)closeFocusedServiceCard();return;}
   var card=document.getElementById(category.card);if(card)openServiceCard(card,service?service.row:null,null);
 }
-document.addEventListener('keydown',function(event){if(event.key==='Escape'&&focusedServiceCard){event.preventDefault();closeFocusedServiceCard();}});
+document.addEventListener('keydown',function(event){
+  if(!focusedServiceCard)return;
+  if(event.key==='Escape'){event.preventDefault();closeFocusedServiceCard();return;}
+  if(event.key!=='Tab')return;
+  var candidates=Array.prototype.slice.call(focusOverlay.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')).filter(function(el){return !el.hidden&&el.getClientRects().length>0;});
+  if(!candidates.length){event.preventDefault();focusClose.focus();return;}
+  var first=candidates[0],last=candidates[candidates.length-1];
+  if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+  else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+});
 openLinkedService();window.addEventListener('hashchange',openLinkedService);window.addEventListener('popstate',openLinkedService);
 
 /* ---------- год в футере ---------- */
@@ -1670,6 +1678,34 @@ var y=document.getElementById('y');
 if(y)y.textContent=new Date().getFullYear();
 })();
 </script>
+
+<style>
+/* Five-pass polish: links, keyboard focus, responsive spacing, and the UTM focus panel. */
+.client-contact a{color:inherit;font-weight:700;text-decoration:none;text-underline-offset:4px;border-bottom:1px solid rgba(185,216,240,.48)}
+.client-contact a:hover,.client-contact a:focus-visible{color:#fff;border-color:currentColor}
+.client-catalog{transition:background-color .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.client-catalog:hover{border-color:rgba(185,216,240,.7);box-shadow:0 8px 22px rgba(3,8,24,.16);transform:translateY(-1px)}
+.client-actions a:focus-visible,.client-contact a:focus-visible,.client-details a:focus-visible,.mbar a:focus-visible,.service-focus-close:focus-visible,.service-focus-call:focus-visible{outline:3px solid #8ECFF4;outline-offset:3px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+#services,#prices,#steps,#contacts{scroll-margin-top:84px}
+.svc.is-focused .service-list-item[aria-current="location"]{scroll-margin-block:24px}
+.svc.is-focused .service-list-item.is-target-service{position:relative;z-index:1}
+@media(max-width:820px){
+  main{padding-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
+  .mbar{padding-inline:12px;padding-bottom:calc(9px + env(safe-area-inset-bottom,0px))}
+  .mbar .btn{min-height:52px}
+}
+@media(max-width:600px){
+  .client-contact a{display:inline-block;padding:4px 0}
+  .client-assurances{gap:14px 8px}
+  .client-assurances li{font-size:12px;line-height:1.45}
+  .client-details{padding-block:18px}
+  #services .sec-head p{font-size:15px;line-height:1.55}
+  .svc .service-description{font-size:15px;line-height:1.55}
+  .svc .service-list-toggle,.svc .svc-link{min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.client-catalog{transition:none}.client-catalog:hover{transform:none}}
+</style>
 
 </body>
 </html>

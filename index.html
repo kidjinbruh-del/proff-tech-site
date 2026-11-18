@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ремонт премиальной техники и ноутбуков в Рязани | PROFF.tech</title>
 <meta name="description" content="Ремонт премиальной бытовой техники, кофемашин и ноутбуков в Рязани. Конфиденциальная диагностика, согласование цены и срока до начала работ.">
 <link rel="canonical" href="https://proff-tech.pro/">
@@ -1375,9 +1375,9 @@ body.service-focus-open{overflow:hidden}
 </footer>
 
 <!-- ================= МОБИЛЬНАЯ ПАНЕЛЬ ================= -->
-<div class="mbar">
-  <a class="btn btn-primary" href="tel:+79770900560"><svg class="ic ic-18"><use href="#i-phone"/></svg>Позвонить</a>
-</div>
+<a class="floating-call btn btn-primary" href="tel:+79770900560" aria-label="Позвонить в PROFF.tech">
+  <svg class="ic ic-18" aria-hidden="true"><use href="#i-phone"/></svg>Позвонить
+</a>
 
 <!-- ================= COOKIE / АНАЛИТИКА ================= -->
 <div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Использование cookie" hidden>
@@ -1519,7 +1519,7 @@ if(burger){
   });
   header.querySelectorAll('nav.menu a').forEach(function(a){a.addEventListener('click',closeMenu);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&header.classList.contains('open')){closeMenu();burger.focus();}});
-  window.addEventListener('resize',function(){if(window.innerWidth>1120)closeMenu();},{passive:true});
+  window.addEventListener('resize',function(){if(window.innerWidth>880)closeMenu();},{passive:true});
 }
 
 /* ============================================================
@@ -1918,26 +1918,43 @@ html{scroll-behavior:smooth;scroll-padding-top:84px}
   .service-focus-stage>.service-focus-call{left:16px;right:16px;max-width:none}
 }
 
-/* Keep the text phone visible while adapting the header to available space. */
+/* Preserve the full desktop navigation and keep calling controls independent of scrolling. */
 .site .tel{background:transparent;box-shadow:none}
-@media(min-width:1121px) and (max-width:1280px){
-  .site>.wrap>.btn{display:none}
-  #siteNav{gap:10px}
-  #siteNav>a{font-size:12px}
+@media(min-width:881px) and (max-width:1280px){
+  html{scroll-padding-top:124px}
+  #siteHeader>.wrap{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:10px 18px;height:auto;min-height:64px;padding-block:12px}
+  #siteHeader .logo{grid-column:1;grid-row:1}
+  #siteHeader .tel{display:flex;grid-column:2;grid-row:1;margin:0}
+  #siteHeader .theme-btn{grid-column:3;grid-row:1}
+  #siteHeader>.wrap>.btn-primary{display:inline-flex;grid-column:4;grid-row:1}
+  #siteHeader .tel-m,#siteHeader .burger{display:none}
+  #siteHeader #siteNav{display:flex;position:static;grid-column:1/-1;grid-row:2;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:8px 24px;margin:0;padding:0;background:transparent;border:0;box-shadow:none;max-height:none;overflow:visible}
+  #siteHeader #siteNav>a{font-size:13px;padding:4px 0;min-height:32px}
+  #siteHeader #siteNav .menu-cta{display:none}
 }
-@media(max-width:1120px){
-  .site .burger{display:flex}
-  .site nav.menu{display:none}
-  .site>.wrap>.btn{display:none}
-  .site.open nav.menu{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:2px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 44px rgba(3,8,20,.35);padding:10px 20px 20px;max-height:calc(100dvh - 64px);overflow:auto}
-  .site.open nav.menu>a{padding:14px 6px;font-size:1.05rem;border-bottom:1px solid var(--line)}
-  .site.open nav.menu>a:last-of-type{border-bottom:none}
-  .site.open .menu-cta{display:flex;gap:10px;margin-top:16px}
-  .site.open .menu-cta .btn{display:inline-flex;flex:1;padding:12px 16px;min-height:48px;font-size:.95rem}
-}
-@media(min-width:601px) and (max-width:1120px){
+@media(min-width:601px) and (max-width:880px){
   .site .tel{display:flex;margin-left:auto}
   .site .tel-m{display:none}
+}
+.floating-call,
+.floating-call:hover,
+.floating-call:active,
+.floating-call:focus{
+  position:fixed;inset:auto 20px 20px auto;z-index:1000;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  margin:0;min-height:52px;padding:14px 24px;border-radius:999px;
+  transform:translate3d(0,0,0)!important;backface-visibility:hidden;
+  animation:none!important;transition:none!important;
+}
+@media(max-width:820px){
+  .floating-call,
+  .floating-call:hover,
+  .floating-call:active,
+  .floating-call:focus{
+    inset:auto 12px calc(10px + env(safe-area-inset-bottom,0px)) 12px;
+    width:auto;min-height:52px;
+  }
+  .cookie-bar{bottom:calc(78px + env(safe-area-inset-bottom,0px))}
 }
 </style>
 </body>
